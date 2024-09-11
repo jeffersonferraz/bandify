@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bandify</title>
+    <title>bandify</title>
 </head>
 <body>
-    <h1>Bandify</h1>
+    <h1>bandify</h1>
 </body>
 </html>
