@@ -1,1 +1,1 @@
-# bandify
+# bandify App
