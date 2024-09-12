@@ -7,7 +7,11 @@
     <title>bandify | Let's make some noise together!</title>
 </head>
 <body>
-    <h1 class="logo">bandify</h1>
-    <p class="subtitle">let's make some noise together!</p>
+    <div class="container">
+        <h1 class="logo">bandify</h1>
+        <p class="subtitle">let's make some noise together!</p>
+        <a href="signup.php" class="button">sign up</a>
+        <a href="signin.php" class="button">sign in</a>
+    </div>
 </body>
 </html>
