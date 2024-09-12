@@ -11,18 +11,65 @@
     margin: 0;
 }
 
+body {
+    background: linear-gradient(90deg, rgb(25, 25, 25), rgb(42, 42, 42));
+    height: 5px;
+}
+
+a {
+    text-decoration: none;
+}
+
 .logo {
     font-family: "Protest Guerrilla", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 78px;
-    text-align: center;
-    margin-top: 40px;
 }
 
 .subtitle {
     font-weight: 300;
     font-style: normal;
+    margin: -18px 0px 60px -25px;
+}
+
+.button {
+    font-size: 0.9em;
+    font-weight: 300;
+    background: rgb(25, 25, 25);
+    color: whitesmoke;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.container {
     text-align: center;
-    margin: -18px 0px 0px -25px;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.855), rgba(255, 255, 255, 0.5));
+    max-width: 340px;
+    padding: 30px 0px 50px 0px;
+    margin: auto;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.8);
+}
+
+form input {
+    padding: 5px;
+    margin: 10px;
+    width: 200px;
+    border-color: transparent;
+    border-radius: 3px;
+}
+
+form button {
+    color: whitesmoke;
+    font-weight: 600;
+    font-size: 1.1em;
+    background-color: rgb(0, 180, 85);
+    width: 220px;
+    margin: 20px auto 20px;
+    padding: 15px 60px 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 0px 20px rgba(112, 112, 112, 0.5);
 }
