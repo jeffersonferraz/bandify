@@ -20,7 +20,12 @@ a {
     text-decoration: none;
 }
 
+textarea {
+    resize: none;
+}
+
 .logo {
+    color: black;
     font-family: "Protest Guerrilla", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -28,6 +33,7 @@ a {
 }
 
 .subtitle {
+    color: black;
     font-weight: 300;
     font-style: normal;
     margin: -18px 0px 60px -25px;
@@ -52,7 +58,7 @@ a {
     box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.8);
 }
 
-form input {
+.input_data {
     padding: 5px;
     margin: 10px;
     width: 200px;

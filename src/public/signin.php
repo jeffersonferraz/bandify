@@ -8,11 +8,13 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="logo">bandify</h1>
-        <p class="subtitle">let's make some noise together!</p>
+        <a href="index.php">
+            <h1 class="logo">bandify</h1>
+            <p class="subtitle">let's make some noise together!</p>
+        </a>
         <form action="signup.php" method="post">
-           <input name="username" type="text" placeholder=" Username"><br>
-           <input name="password" type="password" placeholder=" Password"><br>
+           <input class="input_data" name="username" type="text" placeholder=" Username"><br>
+           <input class="input_data" name="password" type="password" placeholder=" Password"><br>
            <button name="login_button" type="submit">log in</button><br>
            <a href="signup.php" class="button">sign up</a>
         </form>
