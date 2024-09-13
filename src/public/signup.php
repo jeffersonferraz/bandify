@@ -13,13 +13,11 @@
             <p class="subtitle">let's make some noise together!</p>
         </a>
         <form action="signup.php" method="post">
-           <input class="input_data" name="username" type="text" placeholder=" Username"><br>
            <input class="input_data" name="first_name" type="text" placeholder=" Firstname"><br>
            <input class="input_data" name="last_name" type="text" placeholder=" Lastname"><br>
            <input class="input_data" name="email" type="email" placeholder=" E-mail"><br>
            <input class="input_data" name="password" type="password" placeholder=" Password"><br>
            <input class="input_data" name="confirm_password" type="password" placeholder=" Confirm Password"><br>
-           <textarea class="input_data" name="bio" placeholder=" Bio"></textarea>
            <button name="signup_button" type="submit">sign up</button><br>
            <a href="signin.php" class="button">sign in</a>
         </form>
