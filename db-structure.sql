@@ -72,6 +72,15 @@ CREATE TABLE IF NOT EXISTS `bandify`.`musicInfluences` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+-- -----------------------------------------------------
+-- Table `bandify`.`instruments`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bandify`.`instruments` (
+    `instrumentId` INT(11) NOT NULL AUTO_INCREMENT,
+    `name` INT(20) NOT NULL,
+    PRIMARY KEY (`instrumentId`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
