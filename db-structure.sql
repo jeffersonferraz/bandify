@@ -4,7 +4,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 
 CREATE SCHEMA IF NOT EXISTS `bandify` DEFAULT CHARACTER SET utf8 ;
-USE `bandify` ;
+USE `bandify`;
 
 -- -----------------------------------------------------
 -- Table `bandify`.`users`
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `bandify`.`musicGroups` (
     `memberId` INT(11) NOT NULL,
     `groupName` INT(11) NOT NULL,
     `created_at` TIMESTAMP,
-    PRIMARY KEY (`memberId`),
+    PRIMARY KEY (`musicGroupId`),
     CONSTRAINT `fk_memberId_userId`
         FOREIGN KEY (`memberId`)
         REFERENCES `bandify`.`users` (`userId`))
@@ -50,13 +50,13 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bandify`.`searchPosts` (
     `searchPostId` INT(11) NOT NULL AUTO_INCREMENT,
-    `authorId` CHAR(20) NOT NULL,
+    `authorId` INT(11) NOT NULL,
     `title` CHAR(20) NOT NULL,
     `body` TEXT(255) NOT NULL,
     `created_at` TIMESTAMP,
     PRIMARY KEY (`searchPostId`),
     CONSTRAINT `fk_authorId_userId`
-        FOREIGN KEY (`userId`)
+        FOREIGN KEY (`authorId`)
         REFERENCES `bandify`.`users` (`userId`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
