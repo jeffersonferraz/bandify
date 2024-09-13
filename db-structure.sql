@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `bandify`.`users` (
     `lastname` CHAR(30) NOT NULL,
     `email` CHAR(30) NOT NULL,
     `password` CHAR(30) NOT NULL,
-    `address` CHAR(50),
+    `city` CHAR(30),
     `instrument1` INT(11),
     `instrument2` INT(11),
     `instrument3` INT(11),
