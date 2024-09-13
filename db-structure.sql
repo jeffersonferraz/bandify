@@ -24,6 +24,10 @@ CREATE TABLE IF NOT EXISTS `bandify`.`users` (
     `bio` TEXT(255),
     `created_at` TIMESTAMP,
     PRIMARY KEY (`userId`),
+    CONSTRAINT `fk_city_city`
+        FOREIGN KEY (`city`)
+        REFERENCES `bandify`.`cities` (`city`),
+
     CONSTRAINT `fk_instrument1_instrument`
         FOREIGN KEY (`instrument1`)
         REFERENCES `bandify`.`instruments` (`instrument`),
@@ -43,6 +47,15 @@ CREATE TABLE IF NOT EXISTS `bandify`.`users` (
     CONSTRAINT `fk_influence3_influence`
         FOREIGN KEY (`influence3`)
         REFERENCES `bandify`.`musicInfluences` (`influence`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+-- -----------------------------------------------------
+-- Table `bandify`.`cities`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bandify`.`cities` (
+    `city` CHAR(30) NOT NULL,
+    PRIMARY KEY (`city`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
