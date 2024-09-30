@@ -14,7 +14,7 @@ class User {
     public function create($data = []) {
 
         $query = "INSERT INTO users (firstname, lastname, email, password)
-                VALUES (:firstname, :lastname, :email, :password";
+                VALUES (:firstname, :lastname, :email, :password)";
 
         $this->db->query($query, $data);
     }
@@ -30,9 +30,9 @@ class User {
     // Aktualisiert einen Benutzer
     public function update($userId, $data = []) {
 
-        $query = "UPDATE users SET firstname = :firstname, lastname = :lastname, email = :email, password = :password, city = :city, instrument1 = :instrument1, instrument2 = :instrument2, instrument3 = :instrument3, influence1 = :influence1, influence2 = :influence2, influence3 = :influence3, bio = :bio WHERE userid = :userId";
-
         $data['userId'] = $userId;
+        
+        $query = "UPDATE users SET firstname = :firstname, lastname = :lastname, email = :email, password = :password, city = :city, instrument1 = :instrument1, instrument2 = :instrument2, instrument3 = :instrument3, influence1 = :influence1, influence2 = :influence2, influence3 = :influence3, bio = :bio WHERE userid = :userId";
 
         $this->db->query($query, $data);
     }
