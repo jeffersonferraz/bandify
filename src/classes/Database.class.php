@@ -7,14 +7,13 @@ class Database
     public function __construct()
     {
         //connect MySQL database
-        $dsn = 'mysql:localhost;3307;bandify';
+        $dsn = 'mysql:host=localhost;port=3307;dbname=bandify';
         $username = 'root';
-        $password = 'root';
 
-        $this->connection = new PDO($dsn ,$username, $password);
+        $this->connection = new PDO($dsn ,$username);
     }
 
-    public function query($query, $params)
+    public function query($query, $params = [])
     {
         $statement = $this->connection->prepare($query);
 

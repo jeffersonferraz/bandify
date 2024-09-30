@@ -13,10 +13,18 @@ class User {
     // Erstellt einen neuen Benutzer
     public function create($data = []) {
 
+        // Valedierung für leere input Felder
+        if (empty($data['firstname']) || empty($data['lastname']) || empty($data['email']) || empty($data['password'])) {
+
+            return false;
+        }
+
         $query = "INSERT INTO users (firstname, lastname, email, password)
                 VALUES (:firstname, :lastname, :email, :password)";
 
         $this->db->query($query, $data);
+
+        return true;
     }
 
     // Liest einen Benutzer anhand der ID
