@@ -7,7 +7,7 @@ class Signup extends Db {
 
         if (!$stmt->execute(array($email))) {
             $stmt = null;
-            header("Location: ../index.php?error=stmtfailed");
+            header("Location: ../index.php?error=sql-statement-failed");
             exit();
         }
 
@@ -26,7 +26,7 @@ class Signup extends Db {
 
         if (!$stmt->execute(array($firstname, $lastname, $hashedPassword, $email))) {
             $stmt = null;
-            header("Location: ../index.php?error=stmtfailed");
+            header("Location: ../index.php?error=sql-statement-failed");
             exit();
         }
 

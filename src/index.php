@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,6 +30,7 @@
         <h1 class="logo">bandify</h1>
         <p class="subtitle">let's make some noise together!</p>
         <a href="public/signup.php" class="button">sign up</a>
+        <a href="includes/logout.inc.php" class="button">logout</a>
     </div>
 </body>
 

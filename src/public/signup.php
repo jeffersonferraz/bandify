@@ -13,11 +13,11 @@
             <p class="subtitle">let's make some noise together!</p>
         </a>
         <form action="../includes/signup.inc.php" method="post">
-           <input class="input_data" name="firstname" type="text" placeholder=" Firstname"><br>
-           <input class="input_data" name="lastname" type="text" placeholder=" Lastname"><br>
-           <input class="input_data" name="email" type="email" placeholder=" E-mail"><br>
-           <input class="input_data" name="password" type="password" placeholder=" Password"><br>
-           <input class="input_data" name="passwordRepeat" type="password" placeholder=" Confirm Password"><br>
+           <input class="input_data" name="firstname" type="text" placeholder=" Firstname" required><br>
+           <input class="input_data" name="lastname" type="text" placeholder=" Lastname" required><br>
+           <input class="input_data" name="email" type="email" placeholder=" E-mail" required><br>
+           <input class="input_data" name="password" type="password" placeholder=" Password" required><br>
+           <input class="input_data" name="passwordRepeat" type="password" placeholder=" Confirm Password" required><br>
            <button name="signup-submit" type="submit">sign up</button><br>
            <a href="login.php" class="button">log in</a>
         </form>
