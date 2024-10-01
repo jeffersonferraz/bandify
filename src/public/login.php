@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
-    <title>bandify | Sign in</title>
+    <link rel="stylesheet" href="../style/main.css">
+    <title>bandify | Log in</title>
 </head>
 <body>
     <div class="container">
-        <a href="index.php">
+        <a href="../index.php">
             <h1 class="logo">bandify</h1>
             <p class="subtitle">let's make some noise together!</p>
         </a>
-        <form action="signup.php" method="post">
+        <form action="" method="post">
            <input class="input_data" name="email" type="email" placeholder=" E-mail"><br>
            <input class="input_data" name="password" type="password" placeholder=" Password"><br>
            <button name="login_button" type="submit">log in</button><br>

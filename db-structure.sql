@@ -10,10 +10,10 @@ USE `bandify`;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bandify`.`users` (
     `userId` INT(11) NOT NULL AUTO_INCREMENT,
-    `firstname` CHAR(30) NOT NULL,
-    `lastname` CHAR(30) NOT NULL,
-    `email` CHAR(30) NOT NULL,
-    `password` CHAR(30) NOT NULL,
+    `firstname` CHAR(255) NOT NULL,
+    `lastname` CHAR(255) NOT NULL,
+    `email` CHAR(255) NOT NULL,
+    `password` CHAR(255) NOT NULL,
     `city` CHAR(30),
     `instrument1` CHAR(30),
     `instrument2` CHAR(30),
