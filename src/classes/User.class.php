@@ -46,10 +46,4 @@ class User {
     }
 
     // Erstellt einen neuen search post
-    public function createSearchPost($userId, $title, $body) {
-
-        $query = "INSERT INTO searchPosts (authorId, title, body, created_at) VALUES (:userId, :title, :body)";
-
-        $this->db->query($query, ['userId' => $userId, 'title' => $title, 'body' => $body]);
-    }
 }
