@@ -21,6 +21,29 @@
            <button name="signup_button" type="submit">sign up</button><br>
            <a href="signin.php" class="button">sign in</a>
         </form>
+        <?php
+
+        require '../classes/User.class.php';
+
+        if (isset($_POST['signup_button'])) {
+            $user = new User();
+            $data = [
+                'firstname' => $_POST['first_name'],
+                'lastname' => $_POST['last_name'],
+                'email' => $_POST['email'],
+                'password' => $_POST['password']
+            ];
+
+            if ($user->create($data)) {
+
+                echo "User created successfully!";
+
+            } else {
+
+                echo "Please fill in all required fields.";
+            }
+        }
+        ?>
     </div>
 </body>
 </html>
