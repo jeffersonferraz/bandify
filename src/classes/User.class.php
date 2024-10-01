@@ -10,40 +10,38 @@ class User {
         $this->db = new Database();
     }
 
-    // Erstellt einen neuen Benutzer
+    // Creates a new user
     public function create($data = []) {
+        error_log(print_r($data, true)); // Debugging output
 
         $query = "INSERT INTO users (firstname, lastname, email, password)
-                VALUES (:firstname, :lastname, :email, :password)";
-
-        $this->db->query($query, $data);
+                  VALUES (:firstname, :lastname, :email, :password)";
+        return $this->db->query($query, $data); // Return the result of the query
     }
 
-    // Liest einen Benutzer anhand der ID
+    // Reads a user by ID
     public function read($userId) {
-
         $query = "SELECT * FROM users WHERE userid = :userId";
-
-        $this->db->query($query, ['userId' => $userId]);
+        return $this->db->query($query, ['userId' => $userId]); // Return user data
     }
 
-    // Aktualisiert einen Benutzer
+    // Updates a user
     public function update($userId, $data = []) {
-
         $data['userId'] = $userId;
-        
-        $query = "UPDATE users SET firstname = :firstname, lastname = :lastname, email = :email, password = :password, city = :city, instrument1 = :instrument1, instrument2 = :instrument2, instrument3 = :instrument3, influence1 = :influence1, influence2 = :influence2, influence3 = :influence3, bio = :bio WHERE userid = :userId";
-
-        $this->db->query($query, $data);
+        $query = "UPDATE users SET firstname = :firstname, lastname = :lastname, email = :email, password = :password WHERE userid = :userId";
+        return $this->db->query($query, $data);
     }
 
-    // Löscht einen Benutzer
+    // Deletes a user
     public function delete($userId) {
-
         $query = "DELETE FROM users WHERE userid = :userId";
-
-        $this->db->query($query, ['userId' => $userId]);
+        return $this->db->query($query, ['userId' => $userId]);
     }
 
-    // Erstellt einen neuen search post
+    // Login method
+    public function login($data = []) {
+        $query = "SELECT * FROM users WHERE email = :email AND password = :password"; // Note: In a real application, do NOT store plain text passwords!
+        $result = $this->db->query($query, $data);
+        return !empty($result); // Return true if user exists
+    }
 }

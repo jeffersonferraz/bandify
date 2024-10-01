@@ -1,6 +1,6 @@
-services: 
+services:
   php:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
     container_name: bandify_webserver
@@ -20,4 +20,7 @@ services:
     ports:
       - 3307:3306
     volumes:
-      - ./database:/var/lib/mysql
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:

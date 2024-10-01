@@ -7,7 +7,7 @@ class Database
     public function __construct()
     {
         // Correct DSN definition for MySQL
-        $dsn = 'mysql:host=localhost;port=3307;dbname=bandify;charset=utf8';
+        $dsn = 'mysql:host=mysqldb;port=3306;dbname=bandify;charset=utf8';
         $username = 'root';
         $password = 'root';
 
@@ -32,10 +32,18 @@ class Database
             if (strpos($query, 'SELECT') !== false) {
                 return $statement->fetchAll(PDO::FETCH_ASSOC);
             }
+
+            // Return the statement object for INSERT, UPDATE, DELETE
             return $statement;
         } catch (PDOException $e) {
             // Output error message if the query fails
             die("Query failed: " . $e->getMessage());
         }
+    }
+
+    // Method to get the number of affected rows for INSERT, UPDATE, DELETE
+    public function rowCount($statement)
+    {
+        return $statement->rowCount();
     }
 }
