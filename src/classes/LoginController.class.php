@@ -19,7 +19,7 @@ class LoginController extends Login {
 
         $this->getUser($this->email, $this->password);
     }
-
+    // it checks if the input fields are empty
     private function emptyInput() {
 
         if (empty($this->email) || empty($this->password)) {
