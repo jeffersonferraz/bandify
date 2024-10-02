@@ -9,20 +9,20 @@ USE `bandify`;
 -- Table `bandify`.`users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bandify`.`users` (
-    `userId` INT(11) NOT NULL AUTO_INCREMENT,
+    `userId` INT(30) NOT NULL AUTO_INCREMENT,
     `firstname` CHAR(255) NOT NULL,
     `lastname` CHAR(255) NOT NULL,
     `email` CHAR(255) NOT NULL,
     `password` CHAR(255) NOT NULL,
-    `city` CHAR(30),
-    `instrument1` CHAR(30),
-    `instrument2` CHAR(30),
-    `instrument3` CHAR(30),
-    `influence1` CHAR(30),
-    `influence2` CHAR(30),
-    `influence3` CHAR(30),
-    `bio` TEXT(255),
-    `created_at` TIMESTAMP,
+    `city` CHAR(50),
+    `instrument1` CHAR(50),
+    `instrument2` CHAR(50),
+    `instrument3` CHAR(50),
+    `influence1` CHAR(50),
+    `influence2` CHAR(50),
+    `influence3` CHAR(50),
+    `bio` TEXT,
+    `created_at` TIMESTAMP NOT NULL DEFAULT(CURRENT_TIMESTAMP),
     PRIMARY KEY (`userId`),
     CONSTRAINT `fk_city_city`
         FOREIGN KEY (`city`)
@@ -54,7 +54,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `bandify`.`cities`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bandify`.`cities` (
-    `city` CHAR(30) NOT NULL,
+    `city` CHAR(50) NOT NULL,
     PRIMARY KEY (`city`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -63,10 +63,10 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `bandify`.`musicGroups`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bandify`.`musicGroups` (
-    `musicGroupId` INT(11) NOT NULL AUTO_INCREMENT,
-    `memberId` INT(11) NOT NULL,
-    `groupName` INT(11) NOT NULL,
-    `created_at` TIMESTAMP,
+    `musicGroupId` INT(30) NOT NULL AUTO_INCREMENT,
+    `memberId` INT(30) NOT NULL,
+    `groupName` CHAR(50) NOT NULL,
+    `created_at` TIMESTAMP NOT NULL DEFAULT(CURRENT_TIMESTAMP),
     PRIMARY KEY (`musicGroupId`),
     CONSTRAINT `fk_memberId_userId`
         FOREIGN KEY (`memberId`)
@@ -75,15 +75,15 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 -- -----------------------------------------------------
--- Table `bandify`.`searchPosts`
+-- Table `bandify`.`posts`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bandify`.`searchPosts` (
-    `searchPostId` INT(11) NOT NULL AUTO_INCREMENT,
-    `authorId` INT(11) NOT NULL,
-    `title` CHAR(20) NOT NULL,
-    `body` TEXT(255) NOT NULL,
-    `created_at` TIMESTAMP,
-    PRIMARY KEY (`searchPostId`),
+CREATE TABLE IF NOT EXISTS `bandify`.`posts` (
+    `postId` INT(30) NOT NULL AUTO_INCREMENT,
+    `authorId` INT(30) NOT NULL,
+    `title` CHAR(50) NOT NULL,
+    `description` TEXT NOT NULL,
+    `created_at` TIMESTAMP NOT NULL DEFAULT(CURRENT_TIMESTAMP),
+    PRIMARY KEY (`postId`),
     CONSTRAINT `fk_authorId_userId`
         FOREIGN KEY (`authorId`)
         REFERENCES `bandify`.`users` (`userId`))
@@ -94,7 +94,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `bandify`.`instruments`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bandify`.`instruments` (
-    `instrument` CHAR(30) NOT NULL,
+    `instrument` CHAR(50) NOT NULL,
     PRIMARY KEY (`instrument`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -103,7 +103,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `bandify`.`musicInfluences`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bandify`.`musicInfluences` (
-    `influence` CHAR(30) NOT NULL,
+    `influence` CHAR(50) NOT NULL,
     PRIMARY KEY (`influence`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
