@@ -1,6 +1,6 @@
 <?php
 
-class Search extends Db {
+class Post extends Db {
 
     // Function to search for posts based on title only
     public function checkPost($postTitle) {

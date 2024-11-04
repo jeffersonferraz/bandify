@@ -1,6 +1,6 @@
 <?php
 
-class SearchController extends Search {
+class PostController extends Post {
 
     private $postTitle;
     private $postDescription; // Post description
