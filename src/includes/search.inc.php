@@ -3,17 +3,17 @@
 if (isset($_POST["search-submit"])) { // Check if the search button was pressed.
 
     // Grabbing the data
-    $bandTitle = $_POST["title"];
-    $bandDescription = $_POST["description"];
+    $postTitle = $_POST["title"];
+    $postDescription = $_POST["description"];
 
     // Include necessary classes
     include "../classes/Db.class.php";
     include "../classes/Search.class.php";
     include "../classes/SearchController.class.php";
 
-    // Instantiate SearchController with band information
-    $search = new SearchController($bandTitle, $bandDescription);
+    // Instantiate SearchController with post information
+    $search = new SearchController($postTitle, $postDescription);
 
-    // Perform the search or create the band
-    $search->createSearch();
+    // Perform the creation of the post
+    $search->createPost();
 }

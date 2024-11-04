@@ -2,13 +2,13 @@
 
 class Search extends Db {
 
-    // Function to search for bands based on band name only
-    public function checkSearch($bandTitle) {
-        // SQL query to select only based on groupName
-        $stmt = $this->connect()->prepare('SELECT groupName FROM musicGroups WHERE groupName LIKE ?;');
+    // Function to search for posts based on title only
+    public function checkPost($postTitle) {
+        // SQL query to select only based on title
+        $stmt = $this->connect()->prepare('SELECT title FROM posts WHERE title LIKE ?;');
 
-        // Using wildcards for band name
-        $title = "%" . $bandTitle . "%";
+        // Using wildcards for title
+        $title = "%" . $postTitle . "%";
 
         // Execute the statement and handle errors
         if (!$stmt->execute(array($title))) {
@@ -22,11 +22,11 @@ class Search extends Db {
         return $results;
     }
 
-    protected function setSearch($groupName, $groupDescription) {
-        $userId = 1; // Set the userId to 1 for testing purposes
-        $stmt = $this->connect()->prepare('INSERT INTO musicGroups (userId, groupName, groupDescription, created_at) VALUES (?, ?, ?, NOW());');
+    protected function setPost($title, $description) {
+        $authorId = 1; // Set the authorId to 1 for testing purposes
+        $stmt = $this->connect()->prepare('INSERT INTO posts (authorId, title, description, created_at) VALUES (?, ?, ?, NOW());');
 
-        if (!$stmt->execute(array($userId, $groupName, $groupDescription))) {
+        if (!$stmt->execute(array($authorId, $title, $description))) {
             $stmt = null;
             header("Location: ../index.php?error=sql-statement-failed");
             exit();

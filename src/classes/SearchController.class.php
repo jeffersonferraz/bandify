@@ -2,34 +2,34 @@
 
 class SearchController extends Search {
 
-    private $bandTitle;
-    private $bandDescription; // Band description
+    private $postTitle;
+    private $postDescription; // Post description
 
-    public function __construct($bandTitle, $bandDescription) {
-        $this->bandTitle = $bandTitle;
-        $this->bandDescription = $bandDescription; // Initialize description
+    public function __construct($postTitle, $postDescription) {
+        $this->postTitle = $postTitle;
+        $this->postDescription = $postDescription; // Initialize description
     }
 
-    // Function that checks for an existing band and creates a new one if it doesn't exist
-    public function createSearch() {
+    // Function that checks for an existing post and creates a new one if it doesn't exist
+    public function createPost() {
         if ($this->emptyInput() == false) {
             header("Location: ../index.php?error=empty-input");
             exit();
         }
 
-        // Check if the band already exists
-        $existingBand = $this->checkSearch($this->bandTitle);
+        // Check if the post already exists
+        $existingPost = $this->checkPost($this->postTitle);
 
-        if (empty($existingBand)) {
-            // Create the band if it doesn't exist
-            $this->setSearch($this->bandTitle, $this->bandDescription);
+        if (empty($existingPost)) {
+            // Create the post if it doesn't exist
+            $this->setPost($this->postTitle, $this->postDescription);
             header("Location: ../index.php?error=none"); // Redirect to homepage on success
         } else {
-            header("Location: ../index.php?error=band-exists"); // Band already exists
+            header("Location: ../index.php?error=post-exists"); // Post already exists
         }
     }
 
     private function emptyInput() {
-        return !empty($this->bandTitle); // Check if bandTitle is filled
+        return !empty($this->postTitle); // Check if postTitle is filled
     }
 }

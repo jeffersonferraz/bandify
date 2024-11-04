@@ -9,14 +9,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6bf4d04-bbab-4378-a082-2324834101de" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/classes/Search.class.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/SearchController.class.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/includes/search.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db-structure.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db-structure.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Db.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Db.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public/createPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/createPost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Search.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Search.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/SearchController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/SearchController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/includes/search.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/includes/search.inc.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +123,7 @@
       <workItem from="1730715205107" duration="13000" />
       <workItem from="1730715244467" duration="26000" />
       <workItem from="1730715282825" duration="22000" />
-      <workItem from="1730715308882" duration="8854000" />
+      <workItem from="1730715308882" duration="9382000" />
     </task>
     <servers />
   </component>
