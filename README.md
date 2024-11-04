@@ -1,3 +1,3 @@
 # bandify App
 
-[Miro Planing](https://miro.com/app/board/uXjVKgB1VVA=/)
+[Miro Planning](https://miro.com/app/board/uXjVKgB1VVA=/)
