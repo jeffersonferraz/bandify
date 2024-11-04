@@ -23,7 +23,12 @@ class Post extends Db {
     }
 
     protected function setPost($title, $description) {
-        $authorId = 1; // Set the authorId to 1 for testing purposes
+        if (!isset($_SESSION["userId"])) {
+            header("Location: ../index.php?error=user-not-logged-in"); // Weiterleitung, falls nicht eingeloggt
+            exit();
+        }
+
+        $authorId = $_SESSION["userId"]; // Lese die userId aus der Session
         $stmt = $this->connect()->prepare('INSERT INTO posts (authorId, title, description, created_at) VALUES (?, ?, ?, NOW());');
 
         if (!$stmt->execute(array($authorId, $title, $description))) {

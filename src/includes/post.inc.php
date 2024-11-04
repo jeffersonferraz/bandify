@@ -1,4 +1,5 @@
 <?php
+session_start(); // Session starten, um auf die userId zuzugreifen
 
 if (isset($_POST["post-submit"])) { // Check if the post button was pressed.
 
