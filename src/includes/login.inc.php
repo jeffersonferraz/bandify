@@ -18,5 +18,5 @@ if(isset($_POST["login-submit"])) {
     $login->loginUser();
 
     // Going back to front page
-    header("Location: ../index.php?error=none");
+    header("Location: ../public/dashboard.php");
 }

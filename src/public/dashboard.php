@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-
 ?>
 
 <!DOCTYPE html>
@@ -30,17 +28,28 @@ session_start();
     </ul>
 </nav>
 <div class="container">
-    <div class="block">
-        <h3>Hi username</h3>
+    <div class="first-section">
+        <div class="block block-foto">
+            <p>foto</p>
+        </div>
+        <div class="block block-name">
+            <h2>Hi <?php echo $_SESSION["firstname"]; ?></h2>
+        </div>
     </div>
-    <div class="block">
-        <p>test</p>
-    </div>
-    <div class="block">
-        <p>test</p>
-    </div>
-    <div class="block">
-        <p>test</p>
+
+    <div class="second-section">
+        <div class="block">
+            <p>test</p>
+        </div>
+        <div class="block">
+            <p>test</p>
+        </div>
+        <div class="block">
+            <p>test</p>
+        </div>
+        <div class="block">
+            <p>test</p>
+        </div>
     </div>
 </div>
 </body>
