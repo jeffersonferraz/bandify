@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   php:
     build:
@@ -7,7 +5,7 @@ services:
       dockerfile: Dockerfile
     container_name: bandify_webserver
     ports:
-      - "80:80"
+      - 80:80
     volumes:
       - ./src:/var/www/html/
     links:
@@ -17,9 +15,9 @@ services:
     image: mysql:latest
     container_name: bandify_database
     environment:
-      MYSQL_ROOT_USER: root
-      MYSQL_ROOT_PASSWORD: root
+      - MYSQL_ROOT_USER=root
+      - MYSQL_ROOT_PASSWORD=root
     ports:
-      - "3307:3306"
-    tmpfs:
-      - /var/lib/mysql
+      - 3307:3306
+    volumes:
+      - ./database:/var/lib/mysql
