@@ -4,6 +4,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap'); /* font-weight: from 100 to 800 */
 
+/* general set up - BEGIN */
 * {
     font-family: "SUSE", sans-serif;
     font-optical-sizing: auto;
@@ -27,7 +28,9 @@ li {
 textarea {
     resize: none;
 }
+/* general set up - END */
 
+/* logo section - BEGIN */
 .logo {
     color: black;
     font-family: "Protest Guerrilla", sans-serif;
@@ -38,31 +41,37 @@ textarea {
 
 .subtitle {
     color: black;
-    font-weight: 300;
+    font-weight: 400;
     font-style: normal;
     margin: -18px 0px 60px -25px;
 }
+/* logo section - END */
 
+/* redirect buttons */
 .button {
+    display: inline-block;
     font-size: 0.9em;
-    font-weight: 300;
+    font-weight: 400;
     background: rgb(25, 25, 25);
     color: whitesmoke;
-    padding: 5px 10px;
-    border-radius: 3px;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 0px;
 }
 
+/* main container */
 .container {
     text-align: center;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7));
-    max-width: 340px;
-    padding: 30px 0px 50px 0px;
+    width: 70%;
     margin: auto;
+    padding: 20px 0px 1px 0px;
     border-radius: 0px 0px 10px 10px;
     box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.8);
 }
 
-.input_data {
+/* input fields */
+.input-data {
     padding: 5px;
     margin: 10px;
     width: 200px;
@@ -70,7 +79,8 @@ textarea {
     border-radius: 3px;
 }
 
-form button {
+/* form submit buttons */
+.submit-button {
     color: rgb(25, 25, 25);
     font-weight: 700;
     font-size: 1.2em;
@@ -84,13 +94,12 @@ form button {
     box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.6);
 }
 
-/* nav bar */
-
+/* nav bar - BEGIN */
 .menu {
     margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    max-width: 400px;
+    max-width: 80%;
     background: #0d0d0d;
     border-radius: 0px 0px 10px 10px;
 }
@@ -101,3 +110,4 @@ form button {
     font-weight: 600;
     color: whitesmoke;
 }
+/* nav bar - END */
