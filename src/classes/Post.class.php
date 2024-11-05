@@ -23,7 +23,7 @@ class Post extends Db {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    protected function setPost($title, $description) {
+    public function setPost($title, $description) {
         if (!isset($_SESSION["userId"])) {
             header("Location: ../index.php?error=user-not-logged-in");
             exit();
@@ -37,7 +37,7 @@ class Post extends Db {
         }
     }
 
-    protected function updatePost($postId, $title, $description) {
+    public function updatePost($postId, $title, $description) {
         if (!isset($_SESSION["userId"])) {
             header("Location: ../index.php?error=user-not-logged-in");
             exit();
