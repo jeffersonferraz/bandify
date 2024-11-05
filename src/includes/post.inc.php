@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 // Include necessary classes
 include "../classes/Db.class.php";

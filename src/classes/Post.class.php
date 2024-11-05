@@ -23,7 +23,7 @@ class Post extends Db {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function setPost($title, $description) { // Geändert von protected zu public
+    protected function setPost($title, $description) {
         if (!isset($_SESSION["userId"])) {
             header("Location: ../index.php?error=user-not-logged-in");
             exit();
