@@ -12,7 +12,7 @@
         <h1 class="logo">bandify</h1>
         <p class="subtitle">let's make some noise together!</p>
     </a>
-    <form action="../includes/signup.inc.php" method="post">
+    <form action="../includes/post.inc.php" method="post">
         <input class="input-data" name="title" type="text" placeholder=" Title" required><br>
         <textarea class="input-data" name="description" placeholder=" Description"></textarea><br>
         <button class="submit-button" name="post-submit" type="submit">create</button><br>
