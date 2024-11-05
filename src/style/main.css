@@ -99,7 +99,7 @@ textarea {
 .menu {
     margin: auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     max-width: 80%;
     background: #0d0d0d;
     border-radius: 0px 0px 10px 10px;
