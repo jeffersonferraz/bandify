@@ -1,7 +1,7 @@
 <?php
-session_start(); // Session starten, um auf die userId zuzugreifen
+session_start();
 
-if (isset($_POST["post-submit"])) { // Check if the post button was pressed.
+if (isset($_POST["post-submit"])) {
 
     // Grabbing the data
     $postTitle = $_POST["title"];
