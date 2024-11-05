@@ -1,10 +1,10 @@
 <?php
-    // user session status check
-    session_start();
-    if (!isset($_SESSION["userId"])) {
-        // user is not logged in
-        header("Location: login.php?error=user-not-logged-in");
-    }
+// user session status check
+session_start();
+if (!isset($_SESSION["userId"])) {
+    // user is not logged in
+    header("Location: login.php?error=user-not-logged-in");
+}
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +39,6 @@
 <div class="container">
     <div class="first-section">
         <div class="block block-foto">
-            <p>foto</p>
         </div>
         <div class="block block-name">
             <h2>Hi <?php echo $_SESSION["firstname"] ; ?></h2>
