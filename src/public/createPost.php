@@ -1,3 +1,12 @@
+<?php
+// user session status check
+session_start();
+if (!isset($_SESSION["userId"])) {
+    // user is not logged in
+    header("Location: login.php?error=user-not-logged-in");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
