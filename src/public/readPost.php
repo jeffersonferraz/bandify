@@ -1,7 +1,3 @@
-<?php
-require '../includes/readPost.inc.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

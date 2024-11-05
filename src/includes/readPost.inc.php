@@ -1,5 +1,5 @@
 <?php
-require_once '../classes/PostController.class.php';
+require '../classes/PostController.class.php';
 
 $postController = new PostController('', '');
 $posts = $postController->fetchAllPosts();
