@@ -16,14 +16,14 @@
 </head>
 
 <body>
-    <?php
-    include("includes/header.inc.php");
-    ?>
-    <div class="container">
-        <h1 class="logo">bandify</h1>
-        <p class="subtitle">let's make some noise together!</p>
-        <a href="public/signup.php" class="button">sign up</a>
-    </div>
+<?php
+include("includes/header.inc.php");
+?>
+<div class="container">
+    <h1 class="logo">bandify</h1>
+    <p class="subtitle">let's make some noise together!</p>
+    <a href="public/signup.php" class="button">sign up</a>
+</div>
 </body>
 
 </html>

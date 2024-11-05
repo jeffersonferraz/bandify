@@ -20,33 +20,33 @@ if (!isset($_SESSION["userId"])) {
 </head>
 
 <body>
-    <?php
-        include("../includes/headerLogged.inc.php");
-    ?>
-    <div class="container">
-        <div class="first-section">
-            <div class="block block-foto">
-            </div>
-            <div class="block block-name">
-                <h2>Hi <?php echo $_SESSION["firstname"] ; ?></h2>
-            </div>
+<?php
+    include("../includes/headerLogged.inc.php");
+?>
+<div class="container">
+    <div class="first-section">
+        <div class="block block-foto">
         </div>
-
-        <div class="second-section">
-            <div class="block">
-                <p>test</p>
-            </div>
-            <div class="block">
-                <p>test</p>
-            </div>
-            <div class="block">
-                <p>test</p>
-            </div>
-            <div class="block">
-                <p>test</p>
-            </div>
+        <div class="block block-name">
+            <h2>Hi <?php echo $_SESSION["firstname"] ; ?></h2>
         </div>
     </div>
+
+    <div class="second-section">
+        <div class="block">
+            <p>test</p>
+        </div>
+        <div class="block">
+            <p>test</p>
+        </div>
+        <div class="block">
+            <p>test</p>
+        </div>
+        <div class="block">
+            <p>test</p>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>
