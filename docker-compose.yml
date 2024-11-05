@@ -1,6 +1,6 @@
-services: 
+services:
   php:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
     container_name: bandify_webserver
