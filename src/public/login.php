@@ -13,10 +13,10 @@
             <p class="subtitle">let's make some noise together!</p>
         </a>
         <form action="../includes/login.inc.php" method="post">
-           <input class="input_data" name="email" type="email" placeholder=" E-mail"><br>
-           <input class="input_data" name="password" type="password" placeholder=" Password"><br>
-           <button name="login-submit" type="submit">log in</button><br>
-           <a href="signup.php" class="button">sign up</a>
+            <input class="input-data" name="email" type="email" placeholder=" E-mail"><br>
+            <input class="input-data" name="password" type="password" placeholder=" Password"><br>
+            <button class="submit-button" name="login-submit" type="submit">log in</button><br>
+            <a href="signup.php" class="button">sign up</a>
         </form>
     </div>
 </body>
