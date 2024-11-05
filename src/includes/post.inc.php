@@ -19,6 +19,20 @@ if (isset($_POST["post-submit"])) {
     $postController->createPost();
 }
 
+// Handle form submission for updating a post
+if (isset($_POST["post-update"])) {
+    // Grabbing the data
+    $postId = $_POST["postId"];
+    $postTitle = $_POST["title"];
+    $postDescription = $_POST["description"];
+
+    // Instantiate PostController for updating the post
+    $postController = new PostController($postTitle, $postDescription);
+
+    // Perform the update of the post
+    $postController->updatePost($postId, $postTitle, $postDescription);
+}
+
 // Fetch all posts
 $postController = new PostController('', '');
 $posts = $postController->fetchAllPosts();

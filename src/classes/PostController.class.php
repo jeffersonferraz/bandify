@@ -25,6 +25,16 @@ class PostController extends Post {
         }
     }
 
+    public function updatePost($postId, $title, $description) {
+        if (empty($postId) || empty($title) || empty($description)) {
+            header("Location: ../index.php?error=empty-input");
+            exit();
+        }
+
+        // Call the parent update method
+        parent::updatePost($postId, $title, $description);
+    }
+
     public function fetchAllPosts() {
         return $this->getPosts();
     }

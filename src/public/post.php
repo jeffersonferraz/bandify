@@ -40,6 +40,18 @@
                 <?php
                 break;
 
+            case 'update':
+                ?>
+                <h2>Update Post</h2>
+                <form action="../includes/post.inc.php" method="post">
+                    <input class="input-data" name="postId" type="text" placeholder="Post ID" required><br>
+                    <input class="input-data" name="title" type="text" placeholder=" Title" required><br>
+                    <textarea class="input-data" name="description" placeholder=" Description"></textarea><br>
+                    <button class="submit-button" name="post-update" type="submit">Update</button><br>
+                </form>
+                <?php
+                break;
+
             default:
                 echo "<p>Please select an action.</p>";
         }

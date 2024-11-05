@@ -36,5 +36,38 @@ class Post extends Db {
             exit();
         }
     }
+
+    protected function updatePost($postId, $title, $description) {
+        if (!isset($_SESSION["userId"])) {
+            header("Location: ../index.php?error=user-not-logged-in");
+            exit();
+        }
+        $authorId = $_SESSION["userId"];
+
+        // Check if post exists and matches author
+        $stmt = $this->connect()->prepare('SELECT * FROM posts WHERE postId = ? AND authorId = ?;');
+        if (!$stmt->execute([$postId, $authorId])) {
+            $stmt = null;
+            header("Location: ../index.php?error=sql-statement-failed");
+            exit();
+        }
+
+        if ($stmt->rowCount() === 0) {
+            header("Location: ../index.php?error=no-post-found");
+            exit();
+        }
+
+        // Update post
+        $stmt = $this->connect()->prepare('UPDATE posts SET title = ?, description = ?, created_at = NOW() WHERE postId = ? AND authorId = ?;');
+        if (!$stmt->execute([$title, $description, $postId, $authorId])) {
+            $stmt = null;
+            header("Location: ../index.php?error=sql-statement-failed");
+            exit();
+        }
+
+        // Redirect to index page after successful update
+        header("Location: ../index.php?error=none&message=Post successfully updated.");
+        exit();
+    }
 }
 ?>
