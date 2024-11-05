@@ -11,7 +11,7 @@
 <body>
     <nav>
         <ul class="menu">
-            <a href="../index.php">
+            <a href="../index.php" class="border-fix-left">
                 <li>home</li>
             </a>
             <a href="#">
@@ -20,7 +20,7 @@
             <a href="#">
                 <li>about</li>
             </a>
-            <a href="../public/login.php">
+            <a href="../public/login.php" class="border-fix-right">
                 <li>login</li>
             </a>
         </ul>

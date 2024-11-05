@@ -12,7 +12,7 @@
     <nav>
         <div class="menu">
             <div>
-                <a href="../public/dashboard.php">dashboard</a>
+                <a href="../public/dashboard.php" class="border-fix-left">dashboard</a>
             </div>
             <div>
                 <a href="../public/createPost.php">post</a>
@@ -21,9 +21,9 @@
                 <a href="#">search</a>
             </div>
             <div class="dropdown">
-                <a class="dropbtn"><?php echo $_SESSION["firstname"] ; ?></a>
+                <a href="#" class="dropbtn" title="Edit"><?php echo $_SESSION["firstname"] ; ?></a>
                 <div class="dropdown-content">
-                    <a href="logout.inc.php">logout</a>
+                    <a href="../includes/logout.inc.php">logout</a>
                 </div>
             </div>
         </div>

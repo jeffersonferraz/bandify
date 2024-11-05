@@ -13,7 +13,7 @@
 }
 
 body {
-    background: linear-gradient(90deg, rgb(25, 25, 25), rgb(42, 42, 42));
+    background: linear-gradient(90deg, rgb(55, 55, 55), rgb(42, 42, 42));
     height: 5px;
 }
 
@@ -112,9 +112,21 @@ textarea {
     font-weight: 600;
     color: whitesmoke;
 }
+
+.menu a:hover {
+    background: #1c1c1c;
+}
+
+.border-fix-left {
+    border-radius: 0px 0px 0px 10px;
+}
+
+.border-fix-right {
+    border-radius: 0px 0px 10px 0px;
+}
 /* nav bar - END */
 
-
+/* alert messages */
 .warning {
     color: brown;
 }
