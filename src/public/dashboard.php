@@ -20,46 +20,33 @@ if (!isset($_SESSION["userId"])) {
 </head>
 
 <body>
-<nav>
-    <div class="menu">
-        <div>
-            <a href="../index.php">home</a>
+    <?php
+        include("../includes/headerLogged.inc.php");
+    ?>
+    <div class="container">
+        <div class="first-section">
+            <div class="block block-foto">
+            </div>
+            <div class="block block-name">
+                <h2>Hi <?php echo $_SESSION["firstname"] ; ?></h2>
+            </div>
         </div>
-        <div>
-            <a href="createPost.php">create post</a>
-        </div>
-        <div class="dropdown">
-            <a class="dropbtn"><?php echo $_SESSION["firstname"] ; ?></a>
-            <div class="dropdown-content">
-                <a href="../includes/logout.inc.php">logout</a>
+
+        <div class="second-section">
+            <div class="block">
+                <p>test</p>
+            </div>
+            <div class="block">
+                <p>test</p>
+            </div>
+            <div class="block">
+                <p>test</p>
+            </div>
+            <div class="block">
+                <p>test</p>
             </div>
         </div>
     </div>
-</nav>
-<div class="container">
-    <div class="first-section">
-        <div class="block block-foto">
-        </div>
-        <div class="block block-name">
-            <h2>Hi <?php echo $_SESSION["firstname"] ; ?></h2>
-        </div>
-    </div>
-
-    <div class="second-section">
-        <div class="block">
-            <p>test</p>
-        </div>
-        <div class="block">
-            <p>test</p>
-        </div>
-        <div class="block">
-            <p>test</p>
-        </div>
-        <div class="block">
-            <p>test</p>
-        </div>
-    </div>
-</div>
 </body>
 
 </html>

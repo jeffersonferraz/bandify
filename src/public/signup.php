@@ -7,6 +7,9 @@
     <title>bandify | Sign up</title>
 </head>
 <body>
+    <?php
+    include("../includes/header.inc.php");
+    ?>
     <div class="container">
         <a href="../index.php">
             <h1 class="logo">bandify</h1>

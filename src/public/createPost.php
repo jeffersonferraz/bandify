@@ -16,6 +16,9 @@ if (!isset($_SESSION["userId"])) {
     <title>bandify | Create post</title>
 </head>
 <body>
+<?php
+include("../includes/headerLogged.inc.php");
+?>
 <div class="container">
     <a href="../index.php">
         <h1 class="logo">bandify</h1>
