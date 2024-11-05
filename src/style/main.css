@@ -105,7 +105,8 @@ textarea {
 }
 
 .menu a {
-    text-align: center;
+    display: grid;
+    justify-content: center;
     padding: 20px 0px;
     font-weight: 600;
     color: whitesmoke;

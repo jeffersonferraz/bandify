@@ -13,7 +13,7 @@ class Login extends Db {
 
         if ($stmt->rowCount() == 0) {
             $stmt = null;
-            header("Location: ../index.php?error=user-not-found1");
+            header("Location: ../index.php?error=user-not-found-1");
             exit();
         }
 
@@ -35,7 +35,7 @@ class Login extends Db {
 
             if ($stmt->rowCount() == 0) {
                 $stmt = null;
-                header("Location: ../index.php?error=user-not-found2");
+                header("Location: ../index.php?error=user-not-found-2");
                 exit();
             }
 
