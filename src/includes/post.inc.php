@@ -33,35 +33,42 @@ if (isset($_POST["post-update"])) {
     $postController->updatePost($postId, $postTitle, $postDescription);
 }
 
-// Fetch all posts
-$postController = new PostController('', '');
-$posts = $postController->fetchAllPosts();
-?>
+// Handle form submission for deleting a post
+if (isset($_POST["post-delete"])) {
+    // Grabbing the data
+    $postId = $_POST["postId"];
 
-<!-- Displaying posts in a table -->
-<?php if ($posts && count($posts) > 0): ?>
-    <table>
-        <thead>
-        <tr>
-            <th>Post ID</th>
-            <th>Author ID</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Date Created</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($posts as $post): ?>
-            <tr>
-                <td><?php echo htmlspecialchars($post['postId']); ?></td>
-                <td><?php echo htmlspecialchars($post['authorId']); ?></td>
-                <td><?php echo htmlspecialchars($post['title']); ?></td>
-                <td><?php echo htmlspecialchars($post['description']); ?></td>
-                <td><?php echo htmlspecialchars($post['created_at']); ?></td>
-            </tr>
-        <?php endforeach; ?>
-        </tbody>
-    </table>
-<?php else: ?>
-    <p>No posts available.</p>
-<?php endif; ?>
+    // Instantiate PostController for deleting the post
+    $postController = new PostController('', '');
+
+    // Fetch post details to confirm deletion
+    $post = $postController->fetchPostById($postId, $_SESSION["userId"]); // Neue Methode, um den Post zu erhalten
+    if ($post) {
+        ?>
+        <h2>Confirm Delete Post</h2>
+        <p>Are you sure you want to delete the following post?</p>
+        <p><strong>Title:</strong> <?php echo htmlspecialchars($post['title']); ?></p>
+        <p><strong>Description:</strong> <?php echo htmlspecialchars($post['description']); ?></p>
+        <form action="../includes/post.inc.php" method="post">
+            <input type="hidden" name="postId" value="<?php echo htmlspecialchars($postId); ?>">
+            <button class="submit-button" name="delete-confirm" type="submit">Delete this</button>
+        </form>
+        <?php
+    } else {
+        header("Location: ../index.php?error=no-post-found");
+        exit();
+    }
+}
+
+// Handle confirmation of deletion
+if (isset($_POST["delete-confirm"])) {
+    // Grabbing the data
+    $postId = $_POST["postId"];
+
+    // Instantiate PostController for deleting the post
+    $postController = new PostController('', '');
+
+    // Perform the deletion of the post
+    $postController->deletePost($postId);
+}
+?>
