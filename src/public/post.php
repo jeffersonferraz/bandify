@@ -13,10 +13,10 @@
         <p class="subtitle">let's make some noise together!</p>
     </a>
     <div class="button-container">
-        <a href="createPost.php"><button class="crud-button">Create</button></a>
-        <a href="readPost.php"><button class="crud-button">Read</button></a>
-        <a href="updatePost.php"><button class="crud-button">Update</button></a>
-        <a href="deletePost.php"><button class="crud-button">Delete</button></a>
+        <a href="post.php?action=create"><button class="crud-button">Create</button></a>
+        <a href="post.php?action=read"><button class="crud-button">Read</button></a>
+        <a href="post.php?action=update"><button class="crud-button">Update</button></a>
+        <a href="post.php?action=delete"><button class="crud-button">Delete</button></a>
     </div>
 
     <?php
@@ -25,7 +25,7 @@
             case 'create':
                 ?>
                 <h2>Create Post</h2>
-                <form action="../includes/createPost.inc.php" method="post">
+                <form action="post.php?action=create" method="post">
                     <input class="input-data" name="title" type="text" placeholder=" Title" required><br>
                     <textarea class="input-data" name="description" placeholder=" Description"></textarea><br>
                     <button class="submit-button" name="post-submit" type="submit">create</button><br>
@@ -36,11 +36,10 @@
             case 'read':
                 ?>
                 <h2>Posts</h2>
-                <?php require '../includes/readPost.inc.php'; ?>
+                <?php require '../includes/post.inc.php'; ?>
                 <?php
                 break;
 
-            // Hier kannst du weitere Fälle für 'update' und 'delete' hinzufügen
             case 'update':
                 echo "<h2>Update Post</h2>";
                 // Füge hier die Logik für das Aktualisieren von Posts hinzu
