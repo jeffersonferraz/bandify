@@ -12,10 +12,10 @@
         <h1 class="logo">bandify</h1>
         <p class="subtitle">let's make some noise together!</p>
     </a>
-    <form action="../includes/post.inc.php" method="post"> <!-- 'search.inc.php' zu 'post.inc.php' geändert -->
+    <form action="../includes/post.inc.php" method="post">
         <input class="input_data" name="title" type="text" placeholder=" Title" required><br>
         <textarea class="input_data" name="description" placeholder=" Description"></textarea><br>
-        <button name="post-submit" type="submit">create</button><br> <!-- 'search-submit' zu 'post-submit' geändert -->
+        <button class="submit-button" name="post-submit" type="submit">create</button><br>
     </form>
 </div>
 </body>
