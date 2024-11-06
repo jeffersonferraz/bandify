@@ -53,11 +53,15 @@ textarea {
     display: inline-block;
     font-size: 0.9em;
     font-weight: 400;
-    background: rgb(25, 25, 25);
+    background: #0d0d0d;
     color: whitesmoke;
     padding: 10px 20px;
     margin: 10px;
     border-radius: 0px;
+}
+
+.button:hover {
+    background: #1c1c1c;
 }
 
 /* main container */
@@ -103,6 +107,10 @@ textarea {
     max-width: 80%;
     background: #0d0d0d;
     border-radius: 0px 0px 10px 10px;
+}
+
+.menu-simple {
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .menu a {

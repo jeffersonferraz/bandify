@@ -10,15 +10,12 @@
 </head>
 <body>
     <nav>
-        <ul class="menu">
+        <ul class="menu menu-simple">
             <a href="../index.php" class="border-fix-left">
                 <li>home</li>
             </a>
             <a href="#">
                 <li>search</li>
-            </a>
-            <a href="#">
-                <li>about</li>
             </a>
             <a href="../public/login.php" class="border-fix-right">
                 <li>login</li>
