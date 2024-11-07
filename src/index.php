@@ -18,7 +18,7 @@
             <a href="index.php">
                 <li>home</li>
             </a>
-            <a href="public/createPost.php">
+            <a href="public/post.php">
                 <li>search</li>
             </a>
             <a href="public/login.php">

@@ -1,3 +1,5 @@
 .DS_Store
 .idea
 database
+docker-compose.yml
+Dockerfile
