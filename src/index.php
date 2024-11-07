@@ -1,5 +1,4 @@
 <?php
-// should be removed(?)
 session_start();
 ?>
 
