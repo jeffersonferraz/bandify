@@ -1,6 +1,5 @@
 <?php
-    // should be removed(?)
-    session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>

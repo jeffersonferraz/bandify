@@ -1,35 +1,61 @@
 <?php
+require_once 'Post.class.php';
 
 class PostController extends Post {
-
     private $postTitle;
-    private $postDescription; // Post description
+    private $postDescription;
 
     public function __construct($postTitle, $postDescription) {
         $this->postTitle = $postTitle;
-        $this->postDescription = $postDescription; // Initialize description
+        $this->postDescription = $postDescription;
     }
 
-    // Function that checks for an existing post and creates a new one if it doesn't exist
     public function createPost() {
         if ($this->emptyInput() == false) {
             header("Location: ../index.php?error=empty-input");
             exit();
         }
 
-        // Check if the post already exists
         $existingPost = $this->checkPost($this->postTitle);
-
         if (empty($existingPost)) {
-            // Create the post if it doesn't exist
             $this->setPost($this->postTitle, $this->postDescription);
-            header("Location: ../index.php?error=none"); // Redirect to homepage on success
+            header("Location: ../index.php?error=none");
         } else {
-            header("Location: ../index.php?error=post-exists"); // Post already exists
+            header("Location: ../index.php?error=post-exists");
         }
     }
 
+    public function updatePost($postId, $title, $description) {
+        if (empty($postId) || empty($title) || empty($description)) {
+            header("Location: ../index.php?error=empty-input");
+            exit();
+        }
+
+        // Call the parent update method
+        parent::updatePost($postId, $title, $description);
+    }
+
+    public function fetchAllPosts() {
+        return $this->getPosts();
+    }
+
+    public function fetchPostById($postId, $userId) {
+        $stmt = $this->connect()->prepare('SELECT * FROM posts WHERE postId = ? AND authorId = ?;');
+        if (!$stmt->execute([$postId, $userId])) {
+            $stmt = null;
+            header("Location: ../index.php?error=sql-statement-failed");
+            exit();
+        }
+
+        if ($stmt->rowCount() === 0) {
+            return null; // Post nicht gefunden
+        }
+
+        return $stmt->fetch(PDO::FETCH_ASSOC); // Gibt den gefundenen Post zurück
+    }
+
     private function emptyInput() {
-        return !empty($this->postTitle); // Check if postTitle is filled
+        return !empty($this->postTitle);
     }
 }
+?>
