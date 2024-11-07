@@ -15,7 +15,6 @@
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
     z-index: 1;
     width: 18%;
-    border-radius: 0px 0px 5px 5px;
 }
 
 .dropdown-content a {
@@ -23,12 +22,11 @@
     text-decoration: none;
     display: grid;
     font-weight: 600;
-    color: brown;
+    color: #0d0d0d;
 }
 
 .dropdown-content a:hover {
     background: gainsboro;
-    border-radius: 0px 0px 5px 5px;
 }
 
 .dropdown:hover .dropdown-content {
