@@ -1,0 +1,13 @@
+.tab {
+    background: #0d0d0d;
+    color: whitesmoke;
+    padding: 15px;
+    width: 106px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.tab:hover {
+    background: #1c1c1c;
+}

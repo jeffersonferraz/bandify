@@ -15,7 +15,7 @@
                 <a href="../public/dashboard.php" class="border-fix-left">dashboard</a>
             </div>
             <div class="dropdown">
-                <a href="#" class="dropbtn">search</a>
+                <a href="../public/search.php" class="dropbtn">search</a>
                 <div class="dropdown-content">
                     <a href="#">tinder</a>
                 </div>
