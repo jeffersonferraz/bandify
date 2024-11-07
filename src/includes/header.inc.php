@@ -14,7 +14,7 @@
             <a href="../index.php" class="border-fix-left">
                 <li>home</li>
             </a>
-            <a href="#">
+            <a href="../public/post.php">
                 <li>search</li>
             </a>
             <a href="../public/login.php" class="border-fix-right">
