@@ -6,7 +6,7 @@ if(isset($_POST["login-submit"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    // Instantiate Signup class
+    // Instantiate Login class
     // Ordering of includes are important
     include "../classes/Db.class.php";
     include "../classes/Login.class.php";
@@ -18,5 +18,5 @@ if(isset($_POST["login-submit"])) {
     $login->loginUser();
 
     // Going back to front page
-    header("Location: ../index.php?error=none");
+    header("Location: ../public/dashboard.php");
 }

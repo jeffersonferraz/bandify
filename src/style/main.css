@@ -13,7 +13,7 @@
 }
 
 body {
-    background: linear-gradient(90deg, rgb(25, 25, 25), rgb(42, 42, 42));
+    background: linear-gradient(90deg, rgb(55, 55, 55), rgb(42, 42, 42));
     height: 5px;
 }
 
@@ -37,13 +37,14 @@ textarea {
     font-weight: 400;
     font-style: normal;
     font-size: 78px;
+    margin: 24px 0px 0px 0px;
 }
 
 .subtitle {
     color: black;
     font-weight: 400;
     font-style: normal;
-    margin: -18px 0px 60px -25px;
+    margin: -18px 0px 40px -25px;
 }
 /* logo section - END */
 
@@ -52,11 +53,15 @@ textarea {
     display: inline-block;
     font-size: 0.9em;
     font-weight: 400;
-    background: rgb(25, 25, 25);
+    background: #0d0d0d;
     color: whitesmoke;
     padding: 10px 20px;
     margin: 10px;
     border-radius: 0px;
+}
+
+.button:hover {
+    background: #1c1c1c;
 }
 
 /* main container */
@@ -65,7 +70,7 @@ textarea {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7));
     width: 70%;
     margin: auto;
-    padding: 20px 0px 1px 0px;
+    padding: 5px;
     border-radius: 0px 0px 10px 10px;
     box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.8);
 }
@@ -98,16 +103,38 @@ textarea {
 .menu {
     margin: auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     max-width: 80%;
     background: #0d0d0d;
     border-radius: 0px 0px 10px 10px;
 }
 
+.menu-simple {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
 .menu a {
-    text-align: center;
+    display: grid;
+    justify-content: center;
     padding: 20px 0px;
     font-weight: 600;
     color: whitesmoke;
 }
+
+.menu a:hover {
+    background: #1c1c1c;
+}
+
+.border-fix-left {
+    border-radius: 0px 0px 0px 10px;
+}
+
+.border-fix-right {
+    border-radius: 0px 0px 10px 0px;
+}
 /* nav bar - END */
+
+/* alert messages */
+.warning {
+    color: brown;
+}

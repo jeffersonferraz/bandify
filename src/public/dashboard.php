@@ -1,7 +1,10 @@
 <?php
+// user session status check
 session_start();
-
-
+if (!isset($_SESSION["userId"])) {
+    // user is not logged in
+    header("Location: login.php?error=user-not-logged-in");
+}
 ?>
 
 <!DOCTYPE html>
@@ -12,35 +15,36 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/main.css">
     <link rel="stylesheet" href="../style/blocks.css">
+    <link rel="stylesheet" href="../style/dashboard.css">
     <title>bandify | Let's make some noise together!</title>
 </head>
 
 <body>
-<nav>
-    <ul class="menu">
-        <a href="../index.php">
-            <li>home</li>
-        </a>
-        <a href="createPost.php">
-            <li>create post</li>
-        </a>
-        <a href="../includes/logout.inc.php">
-            <li>logout</li>
-        </a>
-    </ul>
-</nav>
+<?php
+    include("../includes/headerLogged.inc.php");
+?>
 <div class="container">
-    <div class="block">
-        <h3>Hi username</h3>
+    <div class="first-section">
+        <div class="block block-foto">
+        </div>
+        <div class="block block-name">
+            <h2>Hi <?php echo $_SESSION["firstname"] ; ?></h2>
+        </div>
     </div>
-    <div class="block">
-        <p>test</p>
-    </div>
-    <div class="block">
-        <p>test</p>
-    </div>
-    <div class="block">
-        <p>test</p>
+
+    <div class="second-section">
+        <div class="block">
+            <p>test</p>
+        </div>
+        <div class="block">
+            <p>test</p>
+        </div>
+        <div class="block">
+            <p>test</p>
+        </div>
+        <div class="block">
+            <p>test</p>
+        </div>
     </div>
 </div>
 </body>
