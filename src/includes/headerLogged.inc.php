@@ -21,9 +21,9 @@
                 <a href="#">search</a>
             </div>
             <div class="dropdown">
-                <a class="dropbtn" title="Edit"><?php echo $_SESSION["firstname"] ; ?></a>
+                <a href="../public/profile.php" class="dropbtn" title="Edit"><?php echo $_SESSION["firstname"] ; ?></a>
                 <div class="dropdown-content">
-                    <a href="#">edit profile</a>
+                    <a href="../public/profile.php">edit profile</a>
                     <a href="../includes/logout.inc.php" style="color: brown">logout</a>
                 </div>
             </div>
