@@ -114,10 +114,11 @@ textarea {
 }
 
 .menu a {
+    font-size: 0.9em;
     display: grid;
     justify-content: center;
     padding: 20px 0px;
-    font-weight: 600;
+    font-weight: 500;
     color: whitesmoke;
 }
 

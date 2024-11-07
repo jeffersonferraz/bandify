@@ -17,14 +17,14 @@
             <div class="dropdown">
                 <a href="../public/search.php" class="dropbtn">search</a>
                 <div class="dropdown-content">
-                    <a href="#">tinder</a>
+                    <a href="#" class="fix-border">tinder</a>
                 </div>
             </div>
             <div class="dropdown">
                 <a href="#" class="dropbtn">posts</a>
                 <div class="dropdown-content">
                     <a href="../public/createPost.php">new post</a>
-                    <a href="#">my posts</a>
+                    <a href="#" class="fix-border">my posts</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -32,7 +32,7 @@
                 <div class="dropdown-content">
                     <a href="../public/profile.php">profile</a>
                     <a href="#">settings</a>
-                    <a href="../includes/logout.inc.php" style="color: brown">logout</a>
+                    <a href="../includes/logout.inc.php" class="fix-border" style="color: brown">logout</a>
                 </div>
             </div>
         </div>
