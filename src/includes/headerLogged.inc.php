@@ -17,7 +17,8 @@
             <div class="dropdown">
                 <a href="../public/search.php" class="dropbtn">search</a>
                 <div class="dropdown-content">
-                    <a href="#" class="fix-border">tinder</a>
+                    <a href="../public/search.php">manual search</a>
+                    <a href="../public/autoMatch.php" class="fix-border">auto match</a>
                 </div>
             </div>
             <div class="dropdown">

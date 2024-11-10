@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,12 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/main.css">
     <link rel="stylesheet" href="../style/tabs.css">
-    <title>bandify | Search</title>
+    <title>bandify | Manual Search</title>
 </head>
 <body>
 <?php
-// header should match the logged and non logged user
-include("../includes/header.inc.php");
+// header output: user log in check
+if (isset($_SESSION["userId"])) {
+    // user is logged in
+    include("../includes/headerLogged.inc.php");
+} else {
+    // user is not logged in
+    include("../includes/header.inc.php");
+}
 ?>
 <div class="container">
 
@@ -28,10 +37,8 @@ include("../includes/header.inc.php");
         <form action="../includes/search.inc.php" method="post">
             <input class="input-data" name="post" type="text" placeholder=" post name"><br>
             <input class="input-data" name="city" type="text" placeholder=" city"><br>
-            <p>Manual or automatic matching function?</p>
             <button class="submit-button" name="search-post-submit" type="submit">search</button><br>
-            <a href="#" class="button">manual</a>
-            <a href="#" class="button">automatic</a>
+            <a href="../public/autoMatch.php" class="button">automatic matching</a>
         </form>
     </div>
 
