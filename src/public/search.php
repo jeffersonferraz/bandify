@@ -38,7 +38,6 @@ if (isset($_SESSION["userId"])) {
             <input class="input-data" name="post" type="text" placeholder=" post name"><br>
             <input class="input-data" name="city" type="text" placeholder=" city"><br>
             <button class="submit-button" name="search-post-submit" type="submit">search</button><br>
-            <a href="../public/autoMatch.php" class="button">automatic matching</a>
         </form>
     </div>
 
@@ -57,6 +56,7 @@ if (isset($_SESSION["userId"])) {
             <button class="submit-button" name="signup-music-group-submit" type="submit">search</button><br>
         </form>
     </div>
+    <a href="../public/autoMatch.php" class="button">automatic matching</a>
 
     <script>
         function openSearch(categoryName) {
