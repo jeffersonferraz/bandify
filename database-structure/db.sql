@@ -14,12 +14,12 @@ CREATE TABLE IF NOT EXISTS `bandify`.`users` (
     `lastname` VARCHAR(255) NOT NULL,
     `email` VARCHAR(255) NOT NULL,
     `password` VARCHAR(255) NOT NULL,
-    `cityId` INT,
+    `userCityId` INT,
     `bio` TEXT,
     `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`userId`),
-    CONSTRAINT `fk_cityId_cityId`
-        FOREIGN KEY (`cityId`)
+    CONSTRAINT `fk_userCityId_cityId`
+        FOREIGN KEY (`userCityId`)
         REFERENCES `bandify`.`cities` (`cityId`)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
@@ -101,6 +101,17 @@ CREATE TABLE IF NOT EXISTS `bandify`.`userInfluences` (
     FOREIGN KEY (`userId`) REFERENCES `bandify`.`users` (`userId`),
     FOREIGN KEY (`influenceId`) REFERENCES `bandify`.`influences` (`influenceId`),
     PRIMARY KEY (`userId`, `influenceId`)
+) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
+
+-- -----------------------------------------------------
+-- Junction Table for MusicGroup Influences
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bandify`.`musicGroupInfluences` (
+    `musicGroupId` INT NOT NULL,
+    `influenceId` INT NOT NULL,
+    FOREIGN KEY (`musicGroupId`) REFERENCES `bandify`.`musicGroups` (`musicGroupId`),
+    FOREIGN KEY (`influenceId`) REFERENCES `bandify`.`influences` (`influenceId`),
+    PRIMARY KEY (`musicGroupId`, `influenceId`)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
 SET SQL_MODE=@OLD_SQL_MODE;
