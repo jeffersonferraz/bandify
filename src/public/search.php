@@ -36,7 +36,12 @@ if (isset($_SESSION["userId"])) {
     <div id="post" class="category">
         <form action="../includes/search.inc.php" method="post">
             <input class="input-data" name="post" type="text" placeholder=" post name"><br>
-            <input class="input-data" name="city" type="text" placeholder=" city"><br>
+            <select class="input-data" name="city">
+                <option  selected disabled hidden>Choose your city</option>
+                <option  value="cityOne">cityOne</option>
+                <option  value="cityTwo">cityTwo</option>
+                <option  value="cityThree">cityThree</option>
+            </select>
             <button class="submit-button" name="search-post-submit" type="submit">search</button><br>
         </form>
     </div>
