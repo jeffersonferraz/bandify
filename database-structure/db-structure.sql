@@ -14,39 +14,15 @@ CREATE TABLE IF NOT EXISTS `bandify`.`users` (
     `lastname` CHAR(255) NOT NULL,
     `email` CHAR(255) NOT NULL,
     `password` CHAR(255) NOT NULL,
-    `city` CHAR(50),
-    `instrument1` CHAR(50),
-    `instrument2` CHAR(50),
-    `instrument3` CHAR(50),
-    `influence1` CHAR(50),
-    `influence2` CHAR(50),
-    `influence3` CHAR(50),
+    `cityId` INT(30),
+    `instrument` INT[],
+    `influence` INT[],
     `bio` TEXT,
     `created_at` TIMESTAMP NOT NULL DEFAULT(CURRENT_TIMESTAMP),
     PRIMARY KEY (`userId`),
-    CONSTRAINT `fk_city_city`
-        FOREIGN KEY (`city`)
-        REFERENCES `bandify`.`cities` (`city`),
-
-    CONSTRAINT `fk_instrument1_instrument`
-        FOREIGN KEY (`instrument1`)
-        REFERENCES `bandify`.`instruments` (`instrument`),
-    CONSTRAINT `fk_instrument2_instrument`
-        FOREIGN KEY (`instrument2`)
-        REFERENCES `bandify`.`instruments` (`instrument`),
-    CONSTRAINT `fk_instrument3_instrument`
-        FOREIGN KEY (`instrument3`)
-        REFERENCES `bandify`.`instruments` (`instrument`),
-
-    CONSTRAINT `fk_influence1_influence`
-        FOREIGN KEY (`influence1`)
-        REFERENCES `bandify`.`musicInfluences` (`influence`),
-    CONSTRAINT `fk_influence2_influence`
-        FOREIGN KEY (`influence2`)
-        REFERENCES `bandify`.`musicInfluences` (`influence`),
-    CONSTRAINT `fk_influence3_influence`
-        FOREIGN KEY (`influence3`)
-        REFERENCES `bandify`.`musicInfluences` (`influence`))
+    CONSTRAINT `fk_cityId_cityId`
+        FOREIGN KEY (`cityId`)
+        REFERENCES `bandify`.`cities` (`cityId`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -54,8 +30,10 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `bandify`.`cities`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bandify`.`cities` (
-    `city` CHAR(50) NOT NULL,
-    PRIMARY KEY (`city`))
+    `cityId` INT(30) NOT NULL AUTO_INCREMENT,
+    `cityName` CHAR(100) NOT NULL,
+    `state` CHAR(50) NOT NULL,
+    PRIMARY KEY (`cityId`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -100,11 +78,13 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 -- -----------------------------------------------------
--- Table `bandify`.`musicInfluences`
+-- Table `bandify`.`influences`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bandify`.`musicInfluences` (
-    `influence` CHAR(50) NOT NULL,
-    PRIMARY KEY (`influence`))
+CREATE TABLE IF NOT EXISTS `bandify`.`influences` (
+    `influenceId` INT(50),
+    `influenceName` CHAR(100),
+    `genre` CHAR(50),
+    PRIMARY KEY (`influenceId`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
