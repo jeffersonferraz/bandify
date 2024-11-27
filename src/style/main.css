@@ -77,11 +77,16 @@ textarea {
 
 /* input fields */
 .input-data {
+    color: grey;
     padding: 5px;
     margin: 10px;
     width: 200px;
     border-color: transparent;
     border-radius: 3px;
+}
+
+.input-city {
+    width: 214px;
 }
 
 /* form submit buttons */
@@ -138,4 +143,32 @@ textarea {
 /* alert messages */
 .warning {
     color: brown;
+}
+
+/* My posts */
+.buttons-post {
+    justify-content: space-between;
+    
+}
+.button-title {
+    font-size: 0.9em;
+    font-weight: 600;
+    background: #008CBA;
+    color: whitesmoke;
+    width: 60px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.button-delete {
+    background: #f44336;
+}
+
+.button-title:hover {
+    background: #1c1c1c;
+}
+
+.post-text {
+    text-align: left;
 }
