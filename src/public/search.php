@@ -16,6 +16,7 @@ session_start();
 if (isset($_SESSION["userId"])) {
     // user is logged in
     include("../includes/headerLogged.inc.php");
+    include("../includes/search.inc.php");
 } else {
     // user is not logged in
     include("../includes/header.inc.php");
@@ -35,34 +36,65 @@ if (isset($_SESSION["userId"])) {
 
     <div id="post" class="category">
         <form action="../includes/search.inc.php" method="post">
-            <input class="input-data" name="post" type="text" placeholder=" post name"><br>
+
+            <!-- Post title -->
+            <input class="input-data" name="post" type="text" placeholder=" post title"><br>
+
+            <!-- City name -->
             <select class="input-data input-city" name="city">
                 <option  selected disabled hidden>Choose the city</option>
-                <option  value="cityOne">cityOne</option>
-                <option  value="cityTwo">cityTwo</option>
-                <option  value="cityThree">cityThree</option>
+                <?php foreach ($cities as $city): ?>
+                <option  value="<?php $city["cityName"] ?>">
+                    <?php echo $city["cityName"]; ?>
+                </option>
+                <?php endforeach; ?>
             </select><br>
+
             <button class="submit-button" name="search-post-submit" type="submit">search</button><br>
         </form>
     </div>
 
     <div id="musician" class="category" style="display:none">
         <form action="../includes/search.inc.php" method="post">
+
+            <!-- Musician name -->
             <input class="input-data" name="musician" type="text" placeholder=" musician"><br>
-            <input class="input-data" name="city" type="text" placeholder=" city"><br>
+
+            <!-- City name -->
+            <select class="input-data input-city" name="city">
+                <option  selected disabled hidden>Choose the city</option>
+                <?php foreach ($cities as $city): ?>
+                <option  value="<?php $city["cityName"] ?>">
+                    <?php echo $city["cityName"]; ?>
+                </option>
+                <?php endforeach; ?>
+            </select><br>
+
             <button class="submit-button" name="search-musician-submit" type="submit">search</button><br>
         </form>
     </div>
 
     <div id="music-group" class="category" style="display:none">
         <form action="../includes/search.inc.php" method="post">
+
+            <!-- Music group -->
             <input class="input-data" name="music-group" type="text" placeholder=" music group"><br>
-            <input class="input-data" name="city" type="text" placeholder=" city"><br>
+
+            <!-- City name -->
+            <select class="input-data input-city" name="city">
+                <option  selected disabled hidden>Choose the city</option>
+                <?php foreach ($cities as $city): ?>
+                <option  value="<?php $city["cityName"] ?>">
+                    <?php echo $city["cityName"]; ?>
+                </option>
+                <?php endforeach; ?>
+            </select><br>
+
             <button class="submit-button" name="signup-music-group-submit" type="submit">search</button><br>
         </form>
     </div>
-    <a href="../public/autoMatch.php" class="button">automatic matching</a>
-
+    
+    <!-- Logic for tab selection -->
     <script>
         function openSearch(categoryName) {
             var i;

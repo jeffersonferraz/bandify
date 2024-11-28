@@ -33,7 +33,7 @@ if (!isset($_SESSION["userId"])) {
     <div class="second-section">
         <div class="block buttons-post">
             <div class="post-text">
-                <h3>Post name 1</h3>
+                <a href=""><h3>Post name 1</h3></a>
                 <p>Post description</p>
             </div>
             <div>

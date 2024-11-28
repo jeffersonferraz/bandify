@@ -5,6 +5,7 @@
     width: 100px;
     font-size: 14px;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
 }
 
