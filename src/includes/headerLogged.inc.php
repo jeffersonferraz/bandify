@@ -25,14 +25,13 @@
                 <a href="#" class="dropbtn">posts</a>
                 <div class="dropdown-content">
                     <a href="../public/createPost.php">new post</a>
-                    <a href="#" class="fix-border">my posts</a>
+                    <a href="../public/myPosts.php" class="fix-border">my posts</a>
                 </div>
             </div>
             <div class="dropdown">
                 <a href="../public/profile.php" class="dropbtn border-fix-right"><?php echo $_SESSION["firstname"] ; ?></a>
                 <div class="dropdown-content">
                     <a href="../public/profile.php">profile</a>
-                    <a href="#">settings</a>
                     <a href="../includes/logout.inc.php" class="fix-border" style="color: brown">logout</a>
                 </div>
             </div>
