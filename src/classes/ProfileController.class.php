@@ -13,9 +13,8 @@ class ProfileController extends Profile {
 
     public function defaultProfile() {
 
-        $city = "Choose a city!";
         $bio = "Write something about yourself, " . $this->firstname . "!";
-        $this->setProfile($city, $bio, $this->userId);
+        $this->setProfile($bio, $this->userId);
     }
 
     public  function updateProfile($city, $bio) {

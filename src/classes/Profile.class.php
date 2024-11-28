@@ -25,7 +25,7 @@ class Profile extends Db {
 
     protected function setNewProfile($city, $bio, $userId) {
 
-        $stmt = $this->connect()->prepare('UPDATE profiles SET city = ?, bio = ? WHERE userId = ?;');
+        $stmt = $this->connect()->prepare('UPDATE profiles SET cityName = ?, bio = ? WHERE userId = ?;');
 
         if (!$stmt->execute(array($city, $bio, $userId))) {
             $stmt = null;
@@ -36,11 +36,11 @@ class Profile extends Db {
         $stmt = null;
     }
 
-    protected function setProfile($city, $bio, $userId) {
+    protected function setProfile($bio, $userId) {
 
-        $stmt = $this->connect()->prepare('INSERT INTO profiles (city, bio, userId) VALUES (?, ?, ?);');
+        $stmt = $this->connect()->prepare('INSERT INTO profiles (bio, userId) VALUES (?, ?);');
 
-        if (!$stmt->execute(array($city, $bio, $userId))) {
+        if (!$stmt->execute(array($bio, $userId))) {
             $stmt = null;
             header("location: dashboard.php?error=sql-statement-failed");
             exit();
