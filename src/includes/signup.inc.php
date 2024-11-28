@@ -20,6 +20,14 @@ if(isset($_POST["signup-submit"])) {
     // Running error handlers and user signup
     $signup->signupUser();
 
+    $userId = $signup->fetchUserId($firstname);
+
+    // Instantiate Profile class
+    include "../classes/Profile.class.php";
+    include "../classes/ProfileController.class.php";
+    $profile = new ProfileController($userId, $firstname);
+    $profile->defaultProfile();
+
     // Going to back to front page
     header("Location: ../index.php?error=none");
 }

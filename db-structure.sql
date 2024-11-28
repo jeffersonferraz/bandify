@@ -14,39 +14,28 @@ CREATE TABLE IF NOT EXISTS `bandify`.`users` (
     `lastname` CHAR(255) NOT NULL,
     `email` CHAR(255) NOT NULL,
     `password` CHAR(255) NOT NULL,
-    `city` CHAR(50),
-    `instrument1` CHAR(50),
-    `instrument2` CHAR(50),
-    `instrument3` CHAR(50),
-    `influence1` CHAR(50),
-    `influence2` CHAR(50),
-    `influence3` CHAR(50),
-    `bio` TEXT,
     `created_at` TIMESTAMP NOT NULL DEFAULT(CURRENT_TIMESTAMP),
-    PRIMARY KEY (`userId`),
+    PRIMARY KEY (`userId`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+-- -----------------------------------------------------
+-- Table `bandify`.`profiles`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bandify`.`profiles` (
+    `profileId` INT(30) NOT NULL AUTO_INCREMENT,
+    `city` CHAR(50),
+    `bio` TEXT,
+    `userId` int(30) NOT NULL,
+    `created_at` TIMESTAMP NOT NULL DEFAULT(CURRENT_TIMESTAMP),
+    PRIMARY KEY (`profileId`),
     CONSTRAINT `fk_city_city`
-        FOREIGN KEY (`city`)
-        REFERENCES `bandify`.`cities` (`city`),
+    FOREIGN KEY (`city`)
+    REFERENCES `bandify`.`cities` (`city`),
 
-    CONSTRAINT `fk_instrument1_instrument`
-        FOREIGN KEY (`instrument1`)
-        REFERENCES `bandify`.`instruments` (`instrument`),
-    CONSTRAINT `fk_instrument2_instrument`
-        FOREIGN KEY (`instrument2`)
-        REFERENCES `bandify`.`instruments` (`instrument`),
-    CONSTRAINT `fk_instrument3_instrument`
-        FOREIGN KEY (`instrument3`)
-        REFERENCES `bandify`.`instruments` (`instrument`),
-
-    CONSTRAINT `fk_influence1_influence`
-        FOREIGN KEY (`influence1`)
-        REFERENCES `bandify`.`musicInfluences` (`influence`),
-    CONSTRAINT `fk_influence2_influence`
-        FOREIGN KEY (`influence2`)
-        REFERENCES `bandify`.`musicInfluences` (`influence`),
-    CONSTRAINT `fk_influence3_influence`
-        FOREIGN KEY (`influence3`)
-        REFERENCES `bandify`.`musicInfluences` (`influence`))
+    CONSTRAINT `fk_userId_userId`
+    FOREIGN KEY (`userId`)
+    REFERENCES `bandify`.`users` (`userId`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
