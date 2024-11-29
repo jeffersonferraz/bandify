@@ -24,8 +24,8 @@ class Search extends Db {
     }
 
     protected function getMusicianByName($musicianName, $cityId) {
-        $stmt = $this->connect()->prepare('SELECT * FROM users WHERE firstname = ? OR lastname = ? AND userCityId = ?;');
-        if (!$stmt->execute(array($musicianName, $musicianName, $cityId))) {
+        $stmt = $this->connect()->prepare('SELECT * FROM users WHERE userCityId = ? AND firstname = ? OR lastname = ?;');
+        if (!$stmt->execute(array($cityId, $musicianName, $musicianName))) {
             $stmt = null;
             exit();
         }
