@@ -40,7 +40,7 @@ session_start();
             <form action="../includes/search.inc.php" method="post">
 
                 <!-- Post title -->
-                <input class="input-data" name="post-title" type="text" placeholder=" post title"><br>
+                <input class="input-data" name="post-title" type="text" placeholder=" post title" required><br>
 
                 <!-- City name -->
                 <select class="input-data input-city" name="city-name">
@@ -60,7 +60,7 @@ session_start();
             <form action="../includes/search.inc.php" method="post">
 
                 <!-- Musician name -->
-                <input class="input-data" name="musician-name" type="text" placeholder=" musician"><br>
+                <input class="input-data" name="musician-name" type="text" placeholder=" musician" required><br>
 
                 <!-- City name -->
                 <select class="input-data input-city" name="city-name">
@@ -80,7 +80,7 @@ session_start();
             <form action="../includes/search.inc.php" method="post">
 
                 <!-- Music group -->
-                <input class="input-data" name="music-group-name" type="text" placeholder=" music group"><br>
+                <input class="input-data" name="music-group-name" type="text" placeholder=" music group" required><br>
 
                 <!-- City name -->
                 <select class="input-data input-city" name="city-name">
@@ -107,8 +107,8 @@ session_start();
                 document.getElementById(categoryName).style.display = "block";
             }
         </script>
-
     </div>
+
     <!-- Retrieve the array $post from the URL parameters -->
     <?php
     if (isset($_GET["post"])) {
@@ -133,7 +133,6 @@ session_start();
                 </div>
             </div>
         </div>
-
     <?php
     }
     ?>
