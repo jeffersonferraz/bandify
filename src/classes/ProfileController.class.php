@@ -11,10 +11,10 @@ class ProfileController extends Profile {
         $this->firstname = $firstname;
     }
 
-    public function defaultProfile() {
+    public function newProfile() {
 
         $bio = "Write something about yourself, " . $this->firstname . "!";
-        $this->setProfile($bio, $this->userId);
+        $this->setRegisteredProfile($bio, $this->userId);
     }
 
     public  function updateProfile($city, $bio) {
@@ -27,7 +27,7 @@ class ProfileController extends Profile {
         }
 
         // Update profile
-        $this->setNewProfile($city, $bio, $this->userId);
+        $this->setProfile($city, $bio, $this->userId);
     }
 
     private function emptyInputCheck($city, $bio) {

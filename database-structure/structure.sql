@@ -138,9 +138,9 @@ CREATE TABLE IF NOT EXISTS `bandify`.`musicGroupInfluences` (
     ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
 -- -----------------------------------------------------
--- Junction Table for MusicGroup User
+-- Junction Table for MusicGroup Members
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bandify`.`musicGroupUsers` (
+CREATE TABLE IF NOT EXISTS `bandify`.`musicGroupMembers` (
     `groupId` INT NOT NULL,
     `memberId` INT NOT NULL,
     `admin` BOOLEAN NOT NULL,
