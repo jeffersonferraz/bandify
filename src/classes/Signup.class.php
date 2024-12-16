@@ -32,4 +32,25 @@ class Signup extends Db {
 
         $stmt = null;
     }
+
+    protected function getUserId($firstname) {
+
+        $stmt = $this->connect()->prepare('SELECT userId FROM users WHERE firstname = ?;');
+
+        if (!$stmt->execute(array($firstname))) {
+            $stmt = null;
+            header("location: dashboard.php?error=sql-statement-failed");
+            exit();
+        }
+
+        if ($stmt->rowCount() == 0) {
+            $stmt = null;
+            header("location: dashboard.php?error=profile-not-found");
+            exit();
+        }
+
+        $profileData = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $profileData;
+    }
 }
