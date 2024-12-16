@@ -111,7 +111,7 @@ session_start();
 
     <!-- Retrieve the array $post from the URL parameters -->
     <?php
-    if (isset($_GET["post"])) {
+    if (isset($_GET["post"]) && is_array($_GET["post"])) {
         $post = $_GET["post"]; ?>
 
         <!-- Select the searched tab -->
@@ -134,11 +134,27 @@ session_start();
             </div>
         </div>
     <?php
+    } else if (str_ends_with($_SERVER['REQUEST_URI'], "post-not-found")) { ?>
+        <!-- Select the searched tab -->
+        <script>
+            document.getElementsByClassName("category")[0].style.display = "block";
+            document.getElementsByClassName("category")[1].style.display = "none";
+            document.getElementsByClassName("category")[2].style.display = "none";
+        </script>
+        <div class="container-search">
+            <div class="block buttons-post">
+                <div class="post-text">
+                    <p><?php echo "Post not found!"; ?></p>
+                </div>
+            </div>
+        </div>
+    <?php
     }
     ?>
-        <!-- Retrieve the array $musician from the URL parameters -->
-        <?php
-    if (isset($_GET["musician"])) {
+
+    <!-- Retrieve the array $musician from the URL parameters -->
+    <?php
+    if (isset($_GET["musician"]) && is_array($_GET["musician"])) {
         $musician = $_GET["musician"]; ?>
 
         <!-- Select the searched tab -->
@@ -161,12 +177,27 @@ session_start();
             </div>
         </div>
     <?php
+    } else if (str_ends_with($_SERVER['REQUEST_URI'], "musician-not-found")) { ?>
+        <!-- Select the searched tab -->
+        <script>
+            document.getElementsByClassName("category")[0].style.display = "none";
+            document.getElementsByClassName("category")[1].style.display = "block";
+            document.getElementsByClassName("category")[2].style.display = "none";
+        </script>
+        <div class="container-search">
+            <div class="block buttons-post">
+                <div class="post-text">
+                    <p><?php echo "Musician not found!"; ?></p>
+                </div>
+            </div>
+        </div>
+    <?php
     }
     ?>
 
     <!-- Retrieve the array $musicGroup from the URL parameters -->
     <?php
-    if (isset($_GET["musicGroup"])) {
+    if (isset($_GET["musicGroup"]) && is_array($_GET["musicGroup"])) {
         $musicGroup = $_GET["musicGroup"]; ?>
 
         <!-- Select the searched tab -->
@@ -185,6 +216,21 @@ session_start();
                 </div>
                 <div>
                     <button class="button-title">action</button>
+                </div>
+            </div>
+        </div>
+    <?php
+    } else if (str_ends_with($_SERVER['REQUEST_URI'], "music-group-not-found")) { ?>
+        <!-- Select the searched tab -->
+        <script>
+            document.getElementsByClassName("category")[0].style.display = "none";
+            document.getElementsByClassName("category")[1].style.display = "none";
+            document.getElementsByClassName("category")[2].style.display = "block";
+        </script>
+        <div class="container-search">
+            <div class="block buttons-post">
+                <div class="post-text">
+                    <p><?php echo "Music group not found!"; ?></p>
                 </div>
             </div>
         </div>
