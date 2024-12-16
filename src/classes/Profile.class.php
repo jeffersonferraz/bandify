@@ -21,11 +21,11 @@ class Profile extends Db {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    protected function setProfile($city, $bio, $userId) {
+    protected function setProfile($profileCityId, $bio, $userId) {
 
-        $stmt = $this->connect()->prepare('UPDATE profiles SET cityName = ?, bio = ? WHERE userId = ?;');
+        $stmt = $this->connect()->prepare('UPDATE profiles SET profileCityId = ?, bio = ? WHERE userId = ?;');
 
-        if (!$stmt->execute(array($city, $bio, $userId))) {
+        if (!$stmt->execute(array($profileCityId, $bio, $userId))) {
             $stmt = null;
             header("location: dashboard.php?error=sql-statement-failed");
             exit();
@@ -123,7 +123,20 @@ class Profile extends Db {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    protected function getInfluencer($userId) {
+    protected function setInstrument($instrumentId, $userId) {
+
+        $stmt = $this->connect()->prepare('UPDATE userInstruments SET instrumentId = ? WHERE userId = ?; ');
+
+        if (!$stmt->execute(array($userId, $instrumentId))) {
+            $stmt = null;
+            header("location: dashboard.php?error=sql-statement-failed");
+            exit();
+        }
+
+        $stmt = null;
+    }
+
+    protected function getInfluence($userId) {
 
         $stmt = $this->connect()->prepare('SELECT * FROM influences I INNER JOIN userInfluences U ON I.influenceId = U.influenceId WHERE U.userId = ?;');
 
@@ -159,6 +172,19 @@ class Profile extends Db {
         }
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    protected function setInfluence($influenceId, $userId) {
+
+        $stmt = $this->connect()->prepare('UPDATE userInfluences SET influenceId = ? WHERE userId = ?; ');
+
+        if (!$stmt->execute(array($userId, $influenceId))) {
+            $stmt = null;
+            header("location: dashboard.php?error=sql-statement-failed");
+            exit();
+        }
+
+        $stmt = null;
     }
 
 }

@@ -32,7 +32,7 @@ if (!isset($_SESSION["userId"])) {
         <div class="block block-foto">
         </div>
         <div class="block block-name">
-            <h2>Hi <?php echo $_SESSION["firstname"] ; ?></h2>
+            <h2>Hi <?php echo $_SESSION["firstname"] . ' ' . $_SESSION['lastname']; ?></h2>
         </div>
     </div>
 
@@ -63,7 +63,7 @@ if (!isset($_SESSION["userId"])) {
             <h4>Influence:</h4>
             <p>
                 <?php
-                    $influencer = $profile->fetchInfluencer($_SESSION['userId']);
+                    $influencer = $profile->fetchInfluence($_SESSION['userId']);
                     echo $influencer[0]['influenceName'] . ' / ' . $influencer[0]['genre'];
                 ?>
             </p>

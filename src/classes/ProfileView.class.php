@@ -31,9 +31,9 @@ class ProfileView extends Profile {
         return $this->getAllInstruments();
     }
 
-    public function fetchInfluencer($userId) {
+    public function fetchInfluence($userId) {
 
-        return $this->getInfluencer($userId);
+        return $this->getInfluence($userId);
     }
 
     public function fetchAllInfluences() {

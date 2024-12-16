@@ -28,7 +28,7 @@ include "../classes/ProfileView.class.php";
 $profile = new ProfileView();
 $userCity = $profile->fetchCity($_SESSION['userId']);
 $userInstrument = $profile->fetchInstrument($_SESSION['userId']);
-$userInfluencer = $profile->fetchInfluencer($_SESSION['userId']);
+$userInfluence = $profile->fetchInfluence($_SESSION['userId']);
 ?>
 <form action="../includes/profileInfo.inc.php" method="post">
     <div class="container">
@@ -47,31 +47,31 @@ $userInfluencer = $profile->fetchInfluencer($_SESSION['userId']);
             </div>
             <h3>Change your city here:</h3>
             <div class="block">
-                <select name="city" id="city">
-                    <option value="<?php $userCity[0]['cityId'] ?>"><?= $userCity[0]['cityName'] ?> </option>
+                <select name="city">
+                    <option value="<?= $userCity[0]['cityId'] ?>"><?= $userCity[0]['cityName'] ?></option>
                     <option disabled>- Choose a city -</option>
                     <?php foreach ($profile->fetchAllCities() as $city) : ?>
-                        <option value="<?php $city['cityId'] ?>"> <?= $city['cityName'] ?> </option>
+                        <option value="<?= $city['cityId'] ?>"><?= $city['cityName'] ?></option>
                     <?endforeach;?>
                 </select>
             </div>
             <h3>Change your instrument here:</h3>
             <div class="block">
-                <select name="instrument" id="instrument">
-                    <option value="<?php $userInstrument[0]['instrumentId'] ?>"><?= $userInstrument[0]['instrumentName'] ?> </option>
+                <select name="instrument">
+                    <option value="<?= $userInstrument[0]['instrumentId'] ?>"><?= $userInstrument[0]['instrumentName'] ?> </option>
                     <option disabled>- Choose an instrument -</option>
                     <?php foreach ($profile->fetchAllInstruments() as $instrument) : ?>
-                        <option value="<?php $instrument['instrumentId'] ?>"> <?= $instrument['instrumentName'] ?> </option>
+                        <option value="<?= $instrument['instrumentId'] ?>"> <?= $instrument['instrumentName'] ?> </option>
                     <?endforeach;?>
                 </select>
             </div>
             <h3>Change your influencer here:</h3>
             <div class="block">
-                <select name="influence" id="influence">
-                    <option value="<?php $userInfluencer[0]['influenceId'] ?>"><?= $userInfluencer[0]['influenceName'] . ' / ' . $userInfluencer[0]['genre'] ?> </option>
+                <select name="influence">
+                    <option value="<?= $userInfluence[0]['influenceId'] ?>"><?= $userInfluence[0]['influenceName'] . ' / ' . $userInfluence[0]['genre'] ?> </option>
                     <option disabled>- Choose an influencer -</option>
                     <?php foreach ($profile->fetchAllInfluences() as $influence) : ?>
-                        <option value="<?php $influence['influenceId'] ?>"> <?= $influence['influenceName'] . ' / ' . $influence['genre']?> </option>
+                        <option value="<?= $influence['influenceId'] ?>"> <?= $influence['influenceName'] . ' / ' . $influence['genre']?> </option>
                     <?endforeach;?>
                 </select>
             </div>
