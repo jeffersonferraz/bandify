@@ -66,9 +66,28 @@ class Profile extends Db {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    protected function getAllCities() {
+
+        $stmt = $this->connect()->prepare('SELECT * FROM cities;');
+
+        if (!$stmt->execute()) {
+            $stmt = null;
+            header("location: dashboard.php?error=sql-statement-failed");
+            exit();
+        }
+
+        if ($stmt->rowCount() == 0) {
+            $stmt = null;
+            header("location: dashboard.php?error=city-not-set");
+            exit();
+        }
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     protected function getInstrument($userId) {
 
-        $stmt = $this->connect()->prepare('SELECT instrumentName FROM instruments I INNER JOIN userInstruments U ON I.instrumentId = U.instrumentId WHERE U.userId = ?;');
+        $stmt = $this->connect()->prepare('SELECT * FROM instruments I INNER JOIN userInstruments U ON I.instrumentId = U.instrumentId WHERE U.userId = ?;');
 
         if (!$stmt->execute(array($userId))) {
             $stmt = null;
@@ -85,11 +104,49 @@ class Profile extends Db {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    protected function getAllInstruments() {
+
+        $stmt = $this->connect()->prepare('SELECT * FROM instruments;');
+
+        if (!$stmt->execute()) {
+            $stmt = null;
+            header("location: dashboard.php?error=sql-statement-failed");
+            exit();
+        }
+
+        if ($stmt->rowCount() == 0) {
+            $stmt = null;
+            header("location: dashboard.php?error=instrument-not-set");
+            exit();
+        }
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     protected function getInfluencer($userId) {
 
-        $stmt = $this->connect()->prepare('SELECT influenceName, genre FROM influences I INNER JOIN userInfluences U ON I.influenceId = U.influenceId WHERE U.userId = ?;');
+        $stmt = $this->connect()->prepare('SELECT * FROM influences I INNER JOIN userInfluences U ON I.influenceId = U.influenceId WHERE U.userId = ?;');
 
         if (!$stmt->execute(array($userId))) {
+            $stmt = null;
+            header("location: dashboard.php?error=sql-statement-failed");
+            exit();
+        }
+
+        if ($stmt->rowCount() == 0) {
+            $stmt = null;
+            header("location: dashboard.php?error=instrument-not-set");
+            exit();
+        }
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    protected function getAllInfluences() {
+
+        $stmt = $this->connect()->prepare('SELECT * FROM influences;');
+
+        if (!$stmt->execute()) {
             $stmt = null;
             header("location: dashboard.php?error=sql-statement-failed");
             exit();
