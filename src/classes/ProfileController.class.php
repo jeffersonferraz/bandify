@@ -17,28 +17,36 @@ class ProfileController extends Profile {
         $this->setRegisteredProfile($bio, $this->userId);
     }
 
-    public  function updateProfile($city, $bio) {
+    public  function updateProfile($cityId, $bio) {
 
-        // Error handlers
-        if ($this->emptyInputCheck($city, $bio) == true) {
+        if (empty($cityId) && empty($bio) == true) {
 
             header("location: ../profile.php?error=empty-input");
             exit();
         }
 
-        // Update profile
-        $this->setProfile($city, $bio, $this->userId);
+        $this->setProfile($cityId, $bio, $this->userId);
     }
 
-    private function emptyInputCheck($city, $bio) {
+    public function updateInstrument($instrumentId) {
 
-        if (empty($city) || empty($bio)) {
+        if (empty($instrumentId) == true) {
 
-            $result = true;
+            header("location: ../profile.php?error=empty-input");
+            exit();
         }
-        else {
-            $result = false;
+
+        $this->setInstrument($this->userId, $instrumentId);
+    }
+
+    public function updateInfluencer($influenceId) {
+
+        if (empty($influenceId) == true) {
+
+            header("location: ../profile.php?error=empty-input");
+            exit();
         }
-        return $result;
+
+        $this->setInfluence($this->userId, $influenceId);
     }
 }

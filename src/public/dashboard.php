@@ -32,22 +32,41 @@ if (!isset($_SESSION["userId"])) {
         <div class="block block-foto">
         </div>
         <div class="block block-name">
-            <h2>Hi <?php echo $_SESSION["firstname"] ; ?></h2>
+            <h2>Hi <?php echo $_SESSION["firstname"] . ' ' . $_SESSION['lastname']; ?></h2>
         </div>
     </div>
 
     <div class="second-section">
         <div class="block">
+            <h4>Bio:</h4>
             <p> <?php $profile->fetchBio($_SESSION['userId']); ?> </p>
         </div>
         <div class="block">
-            <p> <?php $profile->fetchCity($_SESSION['userId']); ?> </p>
+            <h4>City:</h4>
+            <p>
+                <?php
+                    $city = $profile->fetchCity($_SESSION['userId']);
+                    echo $city[0]['cityName'] . ", " . $city[0]['state'];
+                ?>
+            </p>
         </div>
         <div class="block">
-            <p> <?php $profile->fetchInstrument($_SESSION['userId']); ?> </p>
+           <h4>Instrument:</h4>
+            <p>
+                <?php
+                    $instrument = $profile->fetchInstrument($_SESSION['userId']);
+                    echo $instrument[0]['instrumentName'];
+                ?>
+            </p>
         </div>
         <div class="block">
-            <p> <?php $profile->fetchInfluencer($_SESSION['userId']); ?> </p>
+            <h4>Influence:</h4>
+            <p>
+                <?php
+                    $influencer = $profile->fetchInfluence($_SESSION['userId']);
+                    echo $influencer[0]['influenceName'] . ' / ' . $influencer[0]['genre'];
+                ?>
+            </p>
         </div>
     </div>
 </div>
