@@ -96,4 +96,9 @@ class SignupController extends Signup {
         return $result;
     }
 
+    public function fetchUserId($firstname) {
+
+        $userId = $this->getUserId($firstname);
+        return $userId[0]['userId'];
+    }
 }

@@ -22,6 +22,10 @@ if (!isset($_SESSION["userId"])) {
 <body>
 <?php
     include("../includes/headerLogged.inc.php");
+    include "../classes/Db.class.php";
+    include "../classes/Profile.class.php";
+    include "../classes/ProfileView.class.php";
+    $profile = new ProfileView();
 ?>
 <div class="container">
     <div class="first-section">
@@ -34,16 +38,16 @@ if (!isset($_SESSION["userId"])) {
 
     <div class="second-section">
         <div class="block">
-            <p>test</p>
+            <p> <?php $profile->fetchBio($_SESSION['userId']); ?> </p>
         </div>
         <div class="block">
-            <p>test</p>
+            <p> <?php $profile->fetchCity($_SESSION['userId']); ?> </p>
         </div>
         <div class="block">
-            <p>test</p>
+            <p> <?php $profile->fetchInstrument($_SESSION['userId']); ?> </p>
         </div>
         <div class="block">
-            <p>test</p>
+            <p> <?php $profile->fetchInfluencer($_SESSION['userId']); ?> </p>
         </div>
     </div>
 </div>
