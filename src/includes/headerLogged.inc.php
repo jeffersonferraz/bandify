@@ -41,7 +41,8 @@
                 </div>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 </body>
 
 </html>
