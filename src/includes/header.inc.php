@@ -12,13 +12,13 @@
     <nav>
         <ul class="menu menu-simple">
             <a href="../index.php" class="border-fix-left">
-                <li>home</li>
+                <li>Home</li>
             </a>
             <a href="../public/search.php">
-                <li>search</li>
+                <li>Search</li>
             </a>
             <a href="../public/login.php" class="border-fix-right">
-                <li>login</li>
+                <li>Login</li>
             </a>
         </ul>
     </nav>

@@ -3,7 +3,7 @@ require_once 'Db.class.php';
 
 class Post extends Db {
     public function getPosts() {
-        $stmt = $this->connect()->prepare('SELECT * FROM posts;');
+        $stmt = $this->connect()->prepare('SELECT * FROM posts ORDER BY created_at DESC;');
         if (!$stmt->execute()) {
             $stmt = null;
             header("Location: ../index.php?error=sql-statement-failed");
@@ -23,14 +23,10 @@ class Post extends Db {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    protected function setPost($title, $description) {
-        if (!isset($_SESSION["userId"])) {
-            header("Location: ../index.php?error=user-not-logged-in");
-            exit();
-        }
+    protected function setPost($title, $description, $postCityId) {
         $authorId = $_SESSION["userId"];
-        $stmt = $this->connect()->prepare('INSERT INTO posts (authorId, title, description, created_at) VALUES (?, ?, ?, NOW());');
-        if (!$stmt->execute(array($authorId, $title, $description))) {
+        $stmt = $this->connect()->prepare('INSERT INTO posts (authorId, title, description, postCityId) VALUES (?, ?, ?, ?);');
+        if (!$stmt->execute(array($authorId, $title, $description, $postCityId))) {
             $stmt = null;
             header("Location: ../index.php?error=sql-statement-failed");
             exit();

@@ -16,53 +16,38 @@ if (!isset($_SESSION["userId"])) {
     <link rel="stylesheet" href="../style/main.css">
     <link rel="stylesheet" href="../style/blocks.css">
     <link rel="stylesheet" href="../style/dashboard.css">
-    <title>bandify | Let's make some noise together!</title>
+    <title>bandify | My Posts</title>
 </head>
 
 <body>
-<?php
+    <?php
     include("../includes/headerLogged.inc.php");
-?>
-<div class="container">
-    <div class="first-section">
-        <div class="block block-name">
-            <h1>Posts created by <?php echo $_SESSION["firstname"] ; ?></h1>
+    include("../includes/post.inc.php");
+    ?>
+    <div class="container">
+        <div class="first-section">
+            <div class="block block-name">
+                <h1>Posts created by <?php echo $_SESSION["firstname"]; ?></h1>
+            </div>
         </div>
-    </div>
 
-    <div class="second-section">
-        <div class="block buttons-post">
-            <div class="post-text">
-                <a href=""><h3>Post name 1</h3></a>
-                <p>Post description</p>
-            </div>
-            <div>
-                <button class="button-title">edit</button>
-                <button class="button-title button-delete">delete</button>
-            </div>
-        </div>
-        <div class="block buttons-post">
-            <div class="post-text">
-                <h3>Post name 2</h3>
-                <p>Post description</p>
-            </div>
-            <div>
-                <button class="button-title">edit</button>
-                <button class="button-title button-delete">delete</button>
-            </div>
-        </div>
-        <div class="block buttons-post">
-            <div class="post-text">
-                <h3>Post name 3</h3>
-                <p>Post description</p>
-            </div>
-            <div>
-                <button class="button-title">edit</button>
-                <button class="button-title button-delete">delete</button>
-            </div>
+        <div class="second-section">
+            <?php foreach ($posts as $post): ?>
+                <div class="block buttons-post">
+                    <div class="post-text">
+                        <a href="">
+                            <h3><?php echo $post["title"]; ?></h3>
+                        </a>
+                        <p><?php echo $post["description"]; ?></p>
+                    </div>
+                    <div>
+                        <button class="button-title">edit</button>
+                        <button class="button-title button-delete">delete</button>
+                    </div>
+                </div>
+            <?php endforeach; ?>
         </div>
     </div>
-</div>
 </body>
 
 </html>

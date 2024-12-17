@@ -16,7 +16,7 @@
             <div class="dropdown">
                 <a href="" class="dropbtn border-fix-left">Dashboard</a>
                 <div class="dropdown-content">
-                    <a href="../public/dashboard.php">Your Profile</a>
+                    <a href="../public/dashboard.php"><?php echo $_SESSION["firstname"]; ?>'s Profile</a>
                     <a href="../public/musicGroup.php" class="fix-border">Music Group Profile</a>
                 </div>
             </div>

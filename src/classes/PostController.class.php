@@ -4,24 +4,27 @@ require_once 'Post.class.php';
 class PostController extends Post {
     private $postTitle;
     private $postDescription;
+    private $postCityId;
 
-    public function __construct($postTitle, $postDescription) {
-        $this->postTitle = $postTitle;
-        $this->postDescription = $postDescription;
+    // public function __construct($postTitle, $postDescription, $postCityId) {
+    //     $this->postTitle = $postTitle;
+    //     $this->postDescription = $postDescription;
+    //     $this->postCityId = $postCityId;
+    // }
+
+    public function fetchAllUserPosts() {
+        return $this->getPosts();
     }
 
-    public function createPost() {
-        if ($this->emptyInput() == false) {
-            header("Location: ../index.php?error=empty-input");
-            exit();
-        }
+    public function createPost($postTitle, $postDescription, $postCityId) {
 
-        $existingPost = $this->checkPost($this->postTitle);
+        $existingPost = $this->checkPost($postTitle);
+
         if (empty($existingPost)) {
-            $this->setPost($this->postTitle, $this->postDescription);
-            header("Location: ../index.php?error=none");
+            $this->setPost($postTitle, $postDescription, $postCityId);
+            header("Location: ../myPosts.php?error=none");
         } else {
-            header("Location: ../index.php?error=post-exists");
+            header("Location: ../createPost.php?error=post-exists");
         }
     }
 
@@ -55,7 +58,7 @@ class PostController extends Post {
     }
 
     private function emptyInput() {
-        return !empty($this->postTitle);
+        return !empty($postTitle);
     }
 }
 ?>
