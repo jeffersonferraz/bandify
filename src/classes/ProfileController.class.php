@@ -11,10 +11,16 @@ class ProfileController extends Profile {
         $this->firstname = $firstname;
     }
 
-    public function newProfile() {
+    public function defaultProfile() {
 
+        $profileCityId = 1;
+        $instrumentId = 1;
+        $influencerId = 1;
         $bio = "Write something about yourself, " . $this->firstname . "!";
-        $this->setRegisteredProfile($bio, $this->userId);
+        $this->setRegisteredProfile($this->userId);
+        $this->updateProfile($profileCityId, $bio);
+        $this->setNewInstrument($this->userId ,$instrumentId);
+        $this->setNewInfluence($this->userId ,$influencerId);
     }
 
     public  function updateProfile($cityId, $bio) {

@@ -49,24 +49,6 @@ CREATE TABLE IF NOT EXISTS `bandify`.`cities` (
     ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
 -- -----------------------------------------------------
--- Table `bandify`.`musicGroups`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bandify`.`musicGroups` (
-    `groupId` INT NOT NULL AUTO_INCREMENT,
-    `memberId` INT NOT NULL,
-    `groupName` VARCHAR(50) NOT NULL,
-    `groupCityId` INT,
-    `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (`groupId`),
-    CONSTRAINT `fk_memberId_userId`
-    FOREIGN KEY (`memberId`)
-    REFERENCES `bandify`.`users` (`userId`),
-    CONSTRAINT `fk_groupCityId_cityId`
-    FOREIGN KEY (`groupCityId`)
-    REFERENCES `bandify`.`cities` (`cityId`)
-    ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
-
--- -----------------------------------------------------
 -- Table `bandify`.`posts`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bandify`.`posts` (
@@ -127,6 +109,19 @@ CREATE TABLE IF NOT EXISTS `bandify`.`userInfluences` (
     ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
 -- -----------------------------------------------------
+-- Table `bandify`.`musicGroups`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bandify`.`musicGroups` (
+    `groupId` INT NOT NULL AUTO_INCREMENT,
+    `groupName` VARCHAR(50) NOT NULL,
+    `groupCityId` INT,
+    `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`groupId`),
+    FOREIGN KEY (`groupCityId`)
+    REFERENCES `bandify`.`cities` (`cityId`)
+    ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
+
+-- -----------------------------------------------------
 -- Junction Table for MusicGroup Influences
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bandify`.`musicGroupInfluences` (
@@ -141,12 +136,12 @@ CREATE TABLE IF NOT EXISTS `bandify`.`musicGroupInfluences` (
 -- Junction Table for MusicGroup Members
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bandify`.`musicGroupMembers` (
-    `groupId` INT NOT NULL,
     `memberId` INT NOT NULL,
+    `groupId` INT NOT NULL,
     `admin` BOOLEAN NOT NULL,
     FOREIGN KEY (`groupId`) REFERENCES `bandify`.`musicGroups` (`groupId`),
-    FOREIGN KEY (`memberId`) REFERENCES `bandify`.`users` (`userId`),
-    PRIMARY KEY (`groupId`, `memberId`)
+    CONSTRAINT `fk_memberId_userId` FOREIGN KEY (`memberId`) REFERENCES `bandify`.`users` (`userId`),
+    PRIMARY KEY (`memberId`)
     ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
 SET SQL_MODE=@OLD_SQL_MODE;
