@@ -115,7 +115,6 @@ CREATE TABLE IF NOT EXISTS `bandify`.`musicGroups` (
     `groupId` INT NOT NULL AUTO_INCREMENT,
     `groupName` VARCHAR(50) NOT NULL,
     `groupCityId` INT,
-    `members` INT NOT NULL,
     `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`groupId`),
     FOREIGN KEY (`groupCityId`)
@@ -137,12 +136,11 @@ CREATE TABLE IF NOT EXISTS `bandify`.`musicGroupInfluences` (
 -- Junction Table for MusicGroup Members
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bandify`.`musicGroupMembers` (
-    `memberId` INT NOT NULL AUTO_INCREMENT,
+    `memberId` INT NOT NULL,
     `groupId` INT NOT NULL,
     `admin` BOOLEAN NOT NULL,
-    `userId` INT NOT NULL,
     FOREIGN KEY (`groupId`) REFERENCES `bandify`.`musicGroups` (`groupId`),
-    CONSTRAINT `fk_memberId_userId` FOREIGN KEY (`userId`) REFERENCES `bandify`.`users` (`userId`),
+    CONSTRAINT `fk_memberId_userId` FOREIGN KEY (`memberId`) REFERENCES `bandify`.`users` (`userId`),
     PRIMARY KEY (`memberId`)
     ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
