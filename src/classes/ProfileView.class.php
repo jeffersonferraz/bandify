@@ -9,6 +9,11 @@ class ProfileView extends Profile {
         return $this->getCity($profileCityId);
     }
 
+    public function fetchAllCities() {
+
+        return $this->getAllCities();
+    }
+
     public function fetchBio($userId) {
 
         $profile = $this->getProfile($userId);
@@ -21,8 +26,18 @@ class ProfileView extends Profile {
         return $this->getInstrument($userId);
     }
 
+    public function fetchAllInstruments() {
+
+        return $this->getAllInstruments();
+    }
+
     public function fetchInfluence($userId) {
 
         return $this->getInfluence($userId);
+    }
+
+    public function fetchAllInfluences() {
+
+        return $this->getAllInfluences();
     }
 }
