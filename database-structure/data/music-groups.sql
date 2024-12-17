@@ -1,4 +1,4 @@
-INSERT INTO `bandify`.`musicGroups` (`memberId`, `groupName`, `groupCityId`) VALUES
+INSERT INTO `bandify`.`musicGroups` (`groupId`, `groupName`, `groupCityId`) VALUES
 (1, 'The Rising Stars', 1),
 (2, 'The Rhythm Masters', 2),
 (3, 'Harmony Heroes', 3),
