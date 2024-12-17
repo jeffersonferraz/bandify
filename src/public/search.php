@@ -212,7 +212,7 @@ session_start();
                     <a href="">
                         <h3><?php echo $musicGroup[0]["groupName"]; ?></h3>
                     </a>
-                    <p>Members: <?php echo $musicGroup[0]["memberId"]; ?></p>
+                    <p>Members: <?php echo $musicGroup[0]["memberId"]  ?? " Empty."; ?> </p>
                 </div>
                 <div>
                     <button class="button-title">action</button>
