@@ -6,34 +6,52 @@ include "../classes/PostController.class.php";
 
 // Grabbing posts data
 $posts = new PostController;
-$posts = $posts->fetchAllUserPosts();
+$posts = $posts->fetchAllPosts();
 
 if (isset($_POST["post-submit"])) {
     $postTitle = $_POST["title"];
     $postDescription = $_POST["description"];
-    $postCityId  = $_POST["city-name"];
+    $postCityId = $_POST["city-name"];
     $postController = new PostController();
     $postController->createPost($postTitle, $postDescription, $postCityId);
-    header("Location: ../public/myPosts.php?status=post-created"); // Umleitung nach Erstellung
+    header("Location: ../public/myPosts.php?status=post-created");
     exit();
+}
+
+if (isset($_POST["post-edit"])) {
+    $postId = $_POST["post-id"];
+
+    $searchPost = new PostController();
+    $post = $searchPost->fetchPost($postId);
+
+    // Convert the array $post to a query string and pass it via URL
+    $queryString = http_build_query(array('post' => $post));
+
+    // var_dump($post);
+
+    // Going back to front page
+    if (!empty($queryString)) {
+        header("Location: ../public/editPost.php?" . $queryString);
+    } else {
+        header("Location: ../public/editPost.php?post-not-found");
+    }
+
 }
 
 if (isset($_POST["post-update"])) {
-    $postId = $_POST["postId"];
+    $postId = $_POST["post-id"]; 
     $postTitle = $_POST["title"];
     $postDescription = $_POST["description"];
+    $postCityId = $_POST["city-name"];
     $postController = new PostController();
-    $postController->updatePost($postId, $postTitle, $postDescription);
-    header("Location: ../index.php?status=post-updated"); // Umleitung nach Aktualisierung
+    $postController->updatePost($postTitle, $postDescription, $postCityId, $postId);
+
+    header("Location: ../public/myPosts.php?status=post-updated");
     exit();
 }
 
-// Umleitung bei Bestätigung der Löschung
-if (isset($_POST["delete-confirm"])) {
-    $postId = $_POST["postId"];
-    $postController = new PostController('', '', '');
+if (isset($_POST["post-delete"])) {
+    $postId = $_POST["post-id"];
+    $postController = new PostController();
     $postController->deletePost($postId);
-    header("Location: ../index.php?status=post-deleted");
-    exit();
 }
-

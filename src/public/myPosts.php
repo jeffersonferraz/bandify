@@ -33,18 +33,20 @@ if (!isset($_SESSION["userId"])) {
 
         <div class="second-section">
             <?php foreach ($posts as $post): ?>
-                <div class="block buttons-post">
-                    <div class="post-text">
-                        <a href="">
+                <form action="../includes/post.inc.php" method="post">
+                    <div class="block buttons-post">
+                        <div class="post-text">
+                            <input type="hidden" name="post-id" value="<?php echo $post["postId"] ?>">
                             <h3><?php echo $post["title"]; ?></h3>
-                        </a>
-                        <p><?php echo $post["description"]; ?></p>
+                            <p><?php echo $post["description"]; ?></p>
+                        </div>
+                        <div>
+                            <button class="button-title" name="post-edit" type="submit">edit</button>
+                            <button class="button-title button-delete" name="post-delete" type="submit">delete</button>
+                        </div>
                     </div>
-                    <div>
-                        <button class="button-title">edit</button>
-                        <button class="button-title button-delete">delete</button>
-                    </div>
-                </div>
+
+                </form>
             <?php endforeach; ?>
         </div>
     </div>
