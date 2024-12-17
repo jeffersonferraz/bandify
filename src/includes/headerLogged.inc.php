@@ -11,28 +11,31 @@
 <body>
     <nav>
         <div class="menu">
-            <div>
-                <a href="../public/dashboard.php" class="border-fix-left">dashboard</a>
-            </div>
             <div class="dropdown">
-                <a href="../public/search.php" class="dropbtn">search</a>
+                <a href="#" class="dropbtn">Dashboard</a>
                 <div class="dropdown-content">
-                    <a href="../public/search.php">manual</a>
-                    <a href="../public/autoMatch.php" class="fix-border">auto match</a>
+                    <a href="../public/dashboard.php">Profile page</a>
+                    <a href="../public/musicGroup.php" class="fix-border">Music group</a>
                 </div>
             </div>
             <div class="dropdown">
-                <a href="#" class="dropbtn">posts</a>
+                <a href="#" class="dropbtn">Search</a>
                 <div class="dropdown-content">
-                    <a href="../public/createPost.php">new post</a>
-                    <a href="../public/myPosts.php" class="fix-border">my posts</a>
+                    <a href="../public/search.php">Manual</a>
                 </div>
             </div>
             <div class="dropdown">
-                <a href="../public/profile.php" class="dropbtn border-fix-right"><?php echo $_SESSION["firstname"] ; ?></a>
+                <a href="#" class="dropbtn">Posts</a>
                 <div class="dropdown-content">
-                    <a href="../public/profile.php">profile</a>
-                    <a href="../includes/logout.inc.php" class="fix-border" style="color: brown">logout</a>
+                    <a href="../public/createPost.php">New post</a>
+                    <a href="../public/myPosts.php" class="fix-border">My posts</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropbtn border-fix-right"><?php echo $_SESSION["firstname"] ; ?></a>
+                <div class="dropdown-content">
+                    <a href="../public/profile.php">Profile settings</a>
+                    <a href="../includes/logout.inc.php" class="fix-border" style="color: brown">Logout</a>
                 </div>
             </div>
         </div>

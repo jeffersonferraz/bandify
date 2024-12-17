@@ -37,12 +37,12 @@ if (!isset($_SESSION["userId"])) {
     </div>
 
     <div class="second-section">
+        <h4>Bio:</h4>
         <div class="block">
-            <h4>Bio:</h4>
             <p> <?php $profile->fetchBio($_SESSION['userId']); ?> </p>
         </div>
+        <h4>City and state:</h4>
         <div class="block">
-            <h4>City:</h4>
             <p>
                 <?php
                     $city = $profile->fetchCity($_SESSION['userId']);
@@ -50,8 +50,8 @@ if (!isset($_SESSION["userId"])) {
                 ?>
             </p>
         </div>
+        <h4>Instrument:</h4>
         <div class="block">
-           <h4>Instrument:</h4>
             <p>
                 <?php
                     $instrument = $profile->fetchInstrument($_SESSION['userId']);
@@ -59,8 +59,8 @@ if (!isset($_SESSION["userId"])) {
                 ?>
             </p>
         </div>
+        <h4>Influence:</h4>
         <div class="block">
-            <h4>Influence:</h4>
             <p>
                 <?php
                     $influencer = $profile->fetchInfluence($_SESSION['userId']);
