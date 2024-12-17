@@ -14,7 +14,7 @@
     <nav>
         <div class="menu">
             <div class="dropdown">
-                <a href="" class="dropbtn">Dashboard</a>
+                <a href="" class="dropbtn border-fix-left">Dashboard</a>
                 <div class="dropdown-content">
                     <a href="../public/dashboard.php">Your Profile</a>
                     <a href="../public/musicGroup.php" class="fix-border">Music Group Profile</a>
@@ -24,7 +24,6 @@
                 <a href="../public/search.php" class="dropbtn">Search</a>
                 <div class="dropdown-content">
                     <a href="../public/search.php">Manual</a>
-                    <!-- <a href="../public/autoMatch.php" class="fix-border">auto match</a> -->
                 </div>
             </div>
             <div class="dropdown">
