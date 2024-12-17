@@ -26,9 +26,8 @@ if(isset($_POST["signup-submit"])) {
     include "../classes/Profile.class.php";
     include "../classes/ProfileController.class.php";
     $profile = new ProfileController($userId, $firstname);
-    $profile->newProfile();
+    $profile->defaultProfile();
 
     // Going to back to front page
     header("Location: ../index.php?error=none");
 }
-

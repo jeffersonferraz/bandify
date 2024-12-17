@@ -25,7 +25,10 @@ include("../includes/headerLogged.inc.php");
 include "../classes/Db.class.php";
 include "../classes/Profile.class.php";
 include "../classes/ProfileView.class.php";
+include "../classes/Data.class.php";
+include "../classes/DataView.class.php";
 $profile = new ProfileView();
+$data = new DataView();
 $userCity = $profile->fetchCity($_SESSION['userId']);
 $userInstrument = $profile->fetchInstrument($_SESSION['userId']);
 $userInfluence = $profile->fetchInfluence($_SESSION['userId']);
@@ -50,7 +53,7 @@ $userInfluence = $profile->fetchInfluence($_SESSION['userId']);
                 <select name="city">
                     <option value="<?= $userCity[0]['cityId'] ?>"><?= $userCity[0]['cityName'] ?></option>
                     <option disabled>- Choose a city -</option>
-                    <?php foreach ($profile->fetchAllCities() as $city) : ?>
+                    <?php foreach ($data->fetchAllCities() as $city) : ?>
                         <option value="<?= $city['cityId'] ?>"><?= $city['cityName'] ?></option>
                     <?endforeach;?>
                 </select>
@@ -60,7 +63,7 @@ $userInfluence = $profile->fetchInfluence($_SESSION['userId']);
                 <select name="instrument">
                     <option value="<?= $userInstrument[0]['instrumentId'] ?>"><?= $userInstrument[0]['instrumentName'] ?> </option>
                     <option disabled>- Choose an instrument -</option>
-                    <?php foreach ($profile->fetchAllInstruments() as $instrument) : ?>
+                    <?php foreach ($data->fetchAllInstruments() as $instrument) : ?>
                         <option value="<?= $instrument['instrumentId'] ?>"> <?= $instrument['instrumentName'] ?> </option>
                     <?endforeach;?>
                 </select>
@@ -70,7 +73,7 @@ $userInfluence = $profile->fetchInfluence($_SESSION['userId']);
                 <select name="influence">
                     <option value="<?= $userInfluence[0]['influenceId'] ?>"><?= $userInfluence[0]['influenceName'] . ' / ' . $userInfluence[0]['genre'] ?> </option>
                     <option disabled>- Choose an influencer -</option>
-                    <?php foreach ($profile->fetchAllInfluences() as $influence) : ?>
+                    <?php foreach ($data->fetchAllInfluences() as $influence) : ?>
                         <option value="<?= $influence['influenceId'] ?>"> <?= $influence['influenceName'] . ' / ' . $influence['genre']?> </option>
                     <?endforeach;?>
                 </select>

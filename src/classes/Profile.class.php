@@ -34,11 +34,11 @@ class Profile extends Db {
         $stmt = null;
     }
 
-    protected function setRegisteredProfile($bio, $userId) {
+    protected function setRegisteredProfile($userId) {
 
-        $stmt = $this->connect()->prepare('INSERT INTO profiles (bio, userId) VALUES (?, ?);');
+        $stmt = $this->connect()->prepare('INSERT INTO profiles (userId) VALUES (?);');
 
-        if (!$stmt->execute(array($bio, $userId))) {
+        if (!$stmt->execute(array($userId))) {
             $stmt = null;
             header("location: dashboard.php?error=sql-statement-failed");
             exit();
@@ -52,25 +52,6 @@ class Profile extends Db {
         $stmt = $this->connect()->prepare('SELECT * FROM cities INNER JOIN profiles ON cityId = profileCityId WHERE profileCityId = ?;');
 
         if (!$stmt->execute(array($profileCityId))) {
-            $stmt = null;
-            header("location: dashboard.php?error=sql-statement-failed");
-            exit();
-        }
-
-        if ($stmt->rowCount() == 0) {
-            $stmt = null;
-            header("location: dashboard.php?error=city-not-set");
-            exit();
-        }
-
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    protected function getAllCities() {
-
-        $stmt = $this->connect()->prepare('SELECT * FROM cities;');
-
-        if (!$stmt->execute()) {
             $stmt = null;
             header("location: dashboard.php?error=sql-statement-failed");
             exit();
@@ -104,28 +85,22 @@ class Profile extends Db {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    protected function getAllInstruments() {
+    protected function setInstrument($instrumentId, $userId) {
 
-        $stmt = $this->connect()->prepare('SELECT * FROM instruments;');
+        $stmt = $this->connect()->prepare('UPDATE userInstruments SET instrumentId = ? WHERE userId = ?; ');
 
-        if (!$stmt->execute()) {
+        if (!$stmt->execute(array($userId, $instrumentId))) {
             $stmt = null;
             header("location: dashboard.php?error=sql-statement-failed");
             exit();
         }
 
-        if ($stmt->rowCount() == 0) {
-            $stmt = null;
-            header("location: dashboard.php?error=instrument-not-set");
-            exit();
-        }
-
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = null;
     }
 
-    protected function setInstrument($instrumentId, $userId) {
+    protected function setNewInstrument($userId, $instrumentId) {
 
-        $stmt = $this->connect()->prepare('UPDATE userInstruments SET instrumentId = ? WHERE userId = ?; ');
+        $stmt = $this->connect()->prepare('INSERT INTO userInstruments (userId, instrumentId) VALUES (?, ?);');
 
         if (!$stmt->execute(array($userId, $instrumentId))) {
             $stmt = null;
@@ -155,28 +130,22 @@ class Profile extends Db {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    protected function getAllInfluences() {
+    protected function setInfluence($influenceId, $userId) {
 
-        $stmt = $this->connect()->prepare('SELECT * FROM influences;');
+        $stmt = $this->connect()->prepare('UPDATE userInfluences SET influenceId = ? WHERE userId = ?; ');
 
-        if (!$stmt->execute()) {
+        if (!$stmt->execute(array($userId, $influenceId))) {
             $stmt = null;
             header("location: dashboard.php?error=sql-statement-failed");
             exit();
         }
 
-        if ($stmt->rowCount() == 0) {
-            $stmt = null;
-            header("location: dashboard.php?error=instrument-not-set");
-            exit();
-        }
-
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = null;
     }
 
-    protected function setInfluence($influenceId, $userId) {
+    protected function setNewInfluence($userId, $influenceId) {
 
-        $stmt = $this->connect()->prepare('UPDATE userInfluences SET influenceId = ? WHERE userId = ?; ');
+        $stmt = $this->connect()->prepare('INSERT INTO userInfluences (userId, influenceId) VALUES (?, ?);');
 
         if (!$stmt->execute(array($userId, $influenceId))) {
             $stmt = null;
