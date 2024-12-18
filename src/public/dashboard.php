@@ -32,16 +32,20 @@ $profile = new ProfileView();
         <div class="block block-foto">
         </div>
         <div class="block block-name">
-            <h2>Hi <?php echo $_SESSION["firstname"] . ' ' . $_SESSION['lastname']; ?></h2>
+            <h2><?php echo $_SESSION["firstname"] . ' ' . $_SESSION['lastname']; ?></h2>
         </div>
     </div>
 
     <div class="second-section">
-        <h4>Bio:</h4>
+        <div class="block-title">
+            <h3>Bio:</h3>
+        </div>
         <div class="block">
             <p> <?php $profile->fetchBio($_SESSION['userId']); ?> </p>
         </div>
-        <h4>City and state:</h4>
+        <div class="block-title">
+            <h3>City and state:</h3>
+        </div>
         <div class="block">
             <p>
                 <?php
@@ -50,7 +54,9 @@ $profile = new ProfileView();
                 ?>
             </p>
         </div>
-        <h4>Instrument:</h4>
+        <div class="block-title">
+            <h3>Instrument:</h3>
+        </div>
         <div class="block">
             <p>
                 <?php
@@ -59,7 +65,9 @@ $profile = new ProfileView();
                 ?>
             </p>
         </div>
-        <h4>Influence:</h4>
+        <div class="block-title">
+            <h3>Influence:</h3>
+        </div>
         <div class="block">
             <p>
                 <?php
