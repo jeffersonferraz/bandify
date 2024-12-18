@@ -2,11 +2,11 @@
 
 class MusicGroup extends Db {
 
-    protected function getMusicGroup($userId) {
+    protected function getMusicGroup($memberId) {
 
-        $stmt = $this->connect()->prepare('SELECT * FROM musicGroups G INNER JOIN musicGroupMembers M ON G.groupId = M.groupId WHERE M.userId = ?;');
+        $stmt = $this->connect()->prepare('SELECT * FROM musicGroups G INNER JOIN musicGroupMembers M ON G.groupId = M.groupId WHERE M.memberId = ?;');
 
-        if (!$stmt->execute(array($userId))) {
+        if (!$stmt->execute(array($memberId))) {
             $stmt = null;
             header("location: musicGroup.php?error=sql-statement-failed");
             exit();
@@ -21,11 +21,30 @@ class MusicGroup extends Db {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    protected function setMusicGroup($groupName, $groupCityId, $members, $groupId) {
+    protected function getMusicGroupCity($groupId) {
 
-        $stmt = $this->connect()->prepare('UPDATE musicGroups SET groupName = ?, groupCityId = ?, members = ? WHERE groupId = ?;');
+        $stmt = $this->connect()->prepare('SELECT * FROM cities C INNER JOIN musicGroups G ON C.cityId = G.groupCityId WHERE G.groupId = ?;');
 
-        if (!$stmt->execute(array($groupName, $groupCityId, $members, $groupId))) {
+        if (!$stmt->execute(array($groupId))) {
+            $stmt = null;
+            header("location: musicGroup.php?error=sql-statement-failed");
+            exit();
+        }
+
+        if ($stmt->rowCount() == 0) {
+            $stmt = null;
+            header("location: musicGroup.php?error=profile-not-found");
+            exit();
+        }
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    protected function setMusicGroup($groupName, $groupCityId, $groupId) {
+
+        $stmt = $this->connect()->prepare('UPDATE musicGroups SET groupName = ?, groupCityId = ? WHERE groupId = ?;');
+
+        if (!$stmt->execute(array($groupName, $groupCityId, $groupId))) {
             $stmt = null;
             header("location: musicGroup.php?error=sql-statement-failed");
             exit();
@@ -59,11 +78,11 @@ class MusicGroup extends Db {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    protected function getMusicGroupMember($memberId) {
+    protected function getMusicGroupMember($groupId) {
 
-        $stmt = $this->connect()->prepare('SELECT * FROM musicGroupMembers WHERE  memberId = ?;');
+        $stmt = $this->connect()->prepare('SELECT U.userId, U.firstname, U.lastname FROM users U INNER JOIN musicGroupMembers M ON U.userId = M.memberId WHERE M.groupId = ?;');
 
-        if (!$stmt->execute(array($memberId))) {
+        if (!$stmt->execute(array($groupId))) {
             $stmt = null;
             header("location: musicGroup.php?error=sql-statement-failed");
             exit();
@@ -78,11 +97,11 @@ class MusicGroup extends Db {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    protected function setMusicGroupMember($groupId, $admin, $userId, $memberId) {
+    protected function getMusicGroupAdmin($userId) {
 
-        $stmt = $this->connect()->prepare('UPDATE musicGroupMembers SET groupId = ?, admin = ?, userId = ? WHERE memebrId = ?;');
+        $stmt = $this->connect()->prepare('SELECT admin FROM musicGroupMembers M INNER JOIN users U ON M.memberId = U.userId WHERE U.userId = ?;');
 
-        if (!$stmt->execute(array($groupId, $admin, $userId, $memberId))) {
+        if (!$stmt->execute(array($userId))) {
             $stmt = null;
             header("location: musicGroup.php?error=sql-statement-failed");
             exit();
@@ -97,11 +116,30 @@ class MusicGroup extends Db {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    protected function setNewMusicGroupMember($groupId, $admin, $userId) {
+    protected function setMusicGroupMember($groupId, $admin, $memberId) {
 
-        $stmt = $this->connect()->prepare('INSERT INTO musicGroupMembers (groupId, admin, userId) VALUES (?, ?, ?);');
+        $stmt = $this->connect()->prepare('UPDATE musicGroupMembers SET groupId = ?, admin = ? WHERE memebrId = ?;');
 
-        if (!$stmt->execute(array($groupId, $admin, $userId))) {
+        if (!$stmt->execute(array($groupId, $admin, $memberId))) {
+            $stmt = null;
+            header("location: musicGroup.php?error=sql-statement-failed");
+            exit();
+        }
+
+        if ($stmt->rowCount() == 0) {
+            $stmt = null;
+            header("location: musicGroup.php?error=profile-not-found");
+            exit();
+        }
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    protected function setNewMusicGroupMember($groupId, $admin) {
+
+        $stmt = $this->connect()->prepare('INSERT INTO musicGroupMembers (groupId, admin) VALUES (?, ?, ?);');
+
+        if (!$stmt->execute(array($groupId, $admin))) {
             $stmt = null;
             header("location: musicGroup.php?error=sql-statement-failed");
             exit();
@@ -118,17 +156,11 @@ class MusicGroup extends Db {
 
     protected function getMusicGroupInfluence($groupId) {
 
-        $stmt = $this->connect()->prepare('SELECT * FROM influences I INNER JOIN musicGroupInfluences M ON I.influenceId = M.influenceId WHERE M.groupId = ?;');
+        $stmt = $this->connect()->prepare('SELECT * FROM influences I INNER JOIN musicGroupInfluences G ON I.influenceId = G.influenceId WHERE G.groupId = ?;');
 
         if (!$stmt->execute(array($groupId))) {
             $stmt = null;
             header("location: musicGroup.php?error=sql-statement-failed");
-            exit();
-        }
-
-        if ($stmt->rowCount() == 0) {
-            $stmt = null;
-            header("location: musicGroup.php?error=profile-not-found");
             exit();
         }
 

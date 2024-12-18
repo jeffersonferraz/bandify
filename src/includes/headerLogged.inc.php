@@ -36,7 +36,7 @@
             <div class="dropdown">
                 <a href="../public/profile.php" class="dropbtn border-fix-right"><?php echo $_SESSION["firstname"]; ?></a>
                 <div class="dropdown-content">
-                    <a href="../public/profile.php">Profile</a>
+                    <a href="../public/profile.php">Profile settings</a>
                     <a href="../includes/logout.inc.php" class="fix-border" style="color: brown">Logout</a>
                 </div>
             </div>

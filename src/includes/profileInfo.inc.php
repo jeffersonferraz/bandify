@@ -2,12 +2,6 @@
 
 session_start();
 
-function dd($data) {
-    echo '<pre>';
-    die(var_dump($data));
-    echo '</pre>';
-}
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $userId = $_SESSION['userId'];

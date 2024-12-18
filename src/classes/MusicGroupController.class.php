@@ -2,20 +2,22 @@
 
 class MusicGroupController extends MusicGroup {
 
+    private $userId;
+
     public function __construct($userId) {
 
         $this->userId = $userId;
     }
 
-    public function updateMusicGroup($groupName, $groupCityId, $members, $groupId) {
+    public function updateMusicGroup($groupName, $groupCityId, $groupId) {
 
-        if (empty($groupName) && empty($groupCityId) && empty($members) && empty($groupId) == null) {
+        if (empty($groupName) && empty($groupCityId) && empty($groupId) == null) {
 
             header("location: ../musicGroup.php?error=empty-input");
             exit();
         }
 
-        $this->setMusicGroup($groupName, $groupCityId, $members, $groupId);
+        $this->setMusicGroup($groupName, $groupCityId, $groupId);
     }
 
     public function updateMusicGroupMember($groupId, $admin, $memberId) {
